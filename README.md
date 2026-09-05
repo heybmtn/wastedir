@@ -73,8 +73,8 @@ Only `name`, `town`, `category`, and `tags` are required — every other field i
 only rendered when present. `town` must match an existing town's `slug`. `tags` drive the
 filter chips shown on that town's page, so keep them short and reusable across listings
 (e.g. `household waste`, `garden waste`, `electronics/WEEE`, `batteries`, `textiles`,
-`furniture reuse`, `scrap metal`, `hazardous`, `construction waste`, `drop-off`,
-`collection service`, `council-run`, `free`).
+`scrap metal`, `hazardous`, `construction waste`, `drop-off`, `collection service`,
+`council-run`, `free`).
 
 ## Local development
 

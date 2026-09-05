@@ -1,0 +1,11 @@
+{
+  "name": "Carrow Garden Waste Collection",
+  "town": "carrow",
+  "category": "Council collection service",
+  "tags": ["garden waste", "collection service", "council-run"],
+  "phone": "01234 700304",
+  "website": "https://example.com/carrow-council/garden-waste",
+  "description": "Fortnightly kerbside garden waste collection, subscription required.",
+  "acceptedMaterials": ["grass cuttings", "hedge trimmings", "small branches"],
+  "hours": "Collections every other Friday"
+}

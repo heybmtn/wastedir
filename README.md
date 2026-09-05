@@ -57,7 +57,7 @@ Create a new file in `src/content/listings/`, e.g.
 {
   "name": "Newtown Recycling Centre",
   "town": "newtown",
-  "category": "HWRC",
+  "category": "Rubbish & Waste Removal",
   "tags": ["household waste", "garden waste", "drop-off", "council-run", "free"],
   "address": "1 Example Road, Newtown",
   "postcode": "NT1 1AA",
@@ -75,6 +75,24 @@ filter chips shown on that town's page, so keep them short and reusable across l
 (e.g. `household waste`, `garden waste`, `electronics/WEEE`, `batteries`, `textiles`,
 `scrap metal`, `hazardous`, `construction waste`, `drop-off`, `collection service`,
 `council-run`, `free`).
+
+`category` must be one of the fixed values defined in `CATEGORIES` in `src/content/config.ts`:
+
+1. Rubbish & Waste Removal
+2. Garden & Green Waste
+3. Scrap Metal & Salvage
+4. Skips & Containers
+5. House & Garage Clearance
+6. Commercial & Trade Waste
+7. Building & Construction Waste
+8. Furniture & Appliance Recycling
+9. Electrical & IT Recycling
+10. Paper, Cardboard & Packaging
+11. Specialist & Hazardous Waste
+12. Document Shredding & Data Destruction
+13. Vehicle & Tyre Recycling
+14. Wood & Timber Recycling
+15. Other Recycling & Waste Services
 
 ## Local development
 

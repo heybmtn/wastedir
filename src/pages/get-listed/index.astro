@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { CATEGORIES } from '../../content/config';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const towns = (await getCollection('towns')).sort((a, b) =>
@@ -39,13 +40,10 @@ const contactEmail = 'listings@wastelist.uk';
 
     <div class="form-field">
       <label for="category">Category</label>
-      <input
-        type="text"
-        id="category"
-        name="Category"
-        placeholder="e.g. HWRC, Scrap metal, Council collection service"
-        required
-      />
+      <select id="category" name="Category" required>
+        <option value="" selected disabled>Choose a category…</option>
+        {CATEGORIES.map((category) => <option value={category}>{category}</option>)}
+      </select>
     </div>
 
     <div class="form-field">

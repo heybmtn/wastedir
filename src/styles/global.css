@@ -364,6 +364,7 @@ p.intro {
 }
 
 .form-field input,
+.form-field select,
 .form-field textarea {
   font: inherit;
   font-size: 1rem;
@@ -375,6 +376,7 @@ p.intro {
 }
 
 .form-field input:focus,
+.form-field select:focus,
 .form-field textarea:focus {
   border-color: var(--color-accent);
 }

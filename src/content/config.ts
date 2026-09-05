@@ -22,7 +22,6 @@ export const CATEGORIES = [
 export const SERVICES = [
   'Skip Hire',
   'Waste Collection',
-  'Drop-off / Recycling Centre',
   'House Clearance',
   'Garage Clearance',
   'Office & Commercial Clearance',

@@ -1,8 +1,13 @@
 # WasteList
 
-A static directory site for recycling & waste services, organised by town. Built with
-[Astro](https://astro.build), no backend, no database — all content lives in the repo as
-data files under `src/content/`.
+A static directory site for **paid** recycling & waste services, organised by town. Built
+with [Astro](https://astro.build), no backend, no database — all content lives in the repo
+as data files under `src/content/`.
+
+This directory is for paid/commercial businesses only (scrap merchants, skip hire,
+clearance companies, etc.) — not free local-authority services such as council-run
+Household Waste Recycling Centres (HWRCs) or council bin collections. Keep that in mind
+when adding towns/listings.
 
 ## Stack
 
@@ -51,14 +56,14 @@ and to link listings to this town.
 ## Adding a listing
 
 Create a new file in `src/content/listings/`, e.g.
-`src/content/listings/newtown-hwrc.json`:
+`src/content/listings/newtown-skip-hire.json`:
 
 ```json
 {
-  "name": "Newtown Recycling Centre",
+  "name": "Newtown Skip Hire Co",
   "town": "newtown",
-  "categories": ["Rubbish & Waste Removal", "Skips & Containers"],
-  "services": ["Waste Collection", "Skip Hire"],
+  "categories": ["Skips & Containers", "Rubbish & Waste Removal"],
+  "services": ["Skip Hire", "Waste Collection"],
   "materials": ["Household Waste", "Garden Waste"],
   "address": "1 Example Road, Newtown",
   "postcode": "NT1 1AA",
@@ -96,9 +101,9 @@ There are three separate, purpose-built lists, each defined in `src/content/conf
   15. Other Recycling & Waste Services
 
 - **`services`** (array, required, ≥1) — what the business *does* (the action). Fixed
-  values (`SERVICES`): Skip Hire, Waste Collection, Drop-off / Recycling Centre, House
-  Clearance, Garage Clearance, Office & Commercial Clearance, Man & Van Removal, Document
-  Shredding, Scrap Collection, Site Clearance, Demolition & Strip-out, Grab Hire.
+  values (`SERVICES`): Skip Hire, Waste Collection, House Clearance, Garage Clearance,
+  Office & Commercial Clearance, Man & Van Removal, Document Shredding, Scrap Collection,
+  Site Clearance, Demolition & Strip-out, Grab Hire.
 
 - **`materials`** (array, optional) — what the business *accepts or processes*. Fixed
   values (`MATERIALS`): Household Waste, Garden Waste, Metal, Wood, Cardboard & Paper,

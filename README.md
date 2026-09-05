@@ -22,18 +22,27 @@ when adding towns/listings.
 ```
 src/
   content/
-    config.ts        # Zod schemas for `towns` and `listings` collections
+    config.ts        # Zod schemas + CATEGORIES/SERVICES/MATERIALS taxonomies
     towns/            # one JSON file per town
     listings/         # one JSON file per listing
+  lib/
+    categories.ts     # category <-> URL slug helpers, featured-categories list
+  components/
+    ListingResults.astro # shared facet chips + listing cards, used by town & category pages
   layouts/
     BaseLayout.astro
   pages/
-    index.astro       # home page: town list + search
-    [town]/index.astro # town page: listings + service/material facet filtering
+    index.astro                    # home page: hero, search, browse-by-service, popular towns
+    [town]/index.astro             # town page: listings for one town
+    categories/index.astro         # all categories, with listing counts
+    categories/[category]/index.astro # cross-town listings for one category
+    get-listed/index.astro         # public intake form
   styles/
     global.css
 public/
   robots.txt
+  favicon.svg
+  _headers
 ```
 
 ## Adding a town
@@ -46,12 +55,17 @@ Create a new file in `src/content/towns/`, named after the slug, e.g.
   "name": "Newtown",
   "slug": "newtown",
   "region": "Some County",
-  "intro": "Optional one-line description shown on the town page."
+  "intro": "Optional one-line description shown on the town page.",
+  "lat": 51.9,
+  "lon": -0.15
 }
 ```
 
 `slug` must be URL-safe (lowercase, hyphens) and is used to build the route `/newtown/`
-and to link listings to this town.
+and to link listings to this town. `lat`/`lon` are optional — when set, the town becomes
+eligible for the home page's "Use my location" nearest-town lookup (a town without
+coordinates just never gets suggested by that feature; everything else about it works
+normally).
 
 ## Adding a listing
 
@@ -117,6 +131,17 @@ Collection" service).
 
 `acceptedMaterials` is a separate, free-text field for display-only specifics (e.g. "fridges
 and freezers") that don't need to match the controlled `materials` list.
+
+## Category pages
+
+Every value in `CATEGORIES` automatically gets a static page at
+`/categories/<slug>/` listing every matching business across all towns (not just one), plus
+a `/categories/` index of all 15 with counts. Slugs are generated from the category name by
+`slugifyCategory()` in `src/lib/categories.ts` (e.g. "Scrap Metal & Salvage" →
+`scrap-metal-and-salvage`) — nothing to maintain by hand when adding listings. The home
+page's "Browse by service" grid links to a curated subset of 8 categories
+(`FEATURED_CATEGORIES` in the same file, with shorter display labels) plus a "More →" link
+to the full `/categories/` index.
 
 ## Local development
 

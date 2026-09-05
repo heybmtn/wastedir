@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import { CATEGORIES } from '../../content/config';
+import { slugifyCategory } from '../../lib/categories';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const allListings = await getCollection('listings');
+const countByCategory = new Map<string, number>();
+for (const listing of allListings) {
+  for (const category of listing.data.categories) {
+    countByCategory.set(category, (countByCategory.get(category) ?? 0) + 1);
+  }
+}
+---
+
+<BaseLayout
+  title="Browse by service — WasteList"
+  description="Browse every recycling & waste service category on WasteList."
+>
+  <Fragment slot="breadcrumb">
+    <a href="/">All towns</a> / All categories
+  </Fragment>
+
+  <h1>Browse by service</h1>
+  <p class="intro">All categories of paid recycling &amp; waste services listed on WasteList.</p>
+
+  <ul class="card-grid" id="category-list">
+    {
+      CATEGORIES.map((category) => {
+        const count = countByCategory.get(category) ?? 0;
+        return (
+          <li>
+            <a href={`/categories/${slugifyCategory(category)}/`}>
+              {category}
+              <span class="card-count">
+                {count} service{count === 1 ? '' : 's'}
+              </span>
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</BaseLayout>

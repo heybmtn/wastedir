@@ -22,6 +22,7 @@ const siteName = 'WasteList';
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body>
     <header class="site-header">
@@ -38,10 +39,11 @@ const siteName = 'WasteList';
     <footer class="site-footer">
       <div class="container">
         <p>A directory of local recycling and waste services.</p>
-        <p class="footer-cta">Are you a recycling or waste service?</p>
-        <p class="footer-cta">
-          Add your business to {siteName} → <a href="/get-listed/">Get&nbsp;listed</a>
-        </p>
+        <div class="footer-cta">
+          <p class="footer-cta-heading">Are you a waste or recycling business?</p>
+          <p class="footer-cta-text">Get your business listed on {siteName}.</p>
+          <a href="/get-listed/" class="btn">Get listed →</a>
+        </div>
       </div>
     </footer>
   </body>

@@ -18,6 +18,8 @@ export const CATEGORIES = [
   'Other Recycling & Waste Services',
 ] as const;
 
+export type Category = (typeof CATEGORIES)[number];
+
 // What a business DOES.
 export const SERVICES = [
   'Skip Hire',
@@ -59,6 +61,10 @@ const towns = defineCollection({
     slug: z.string(),
     region: z.string().optional(),
     intro: z.string().optional(),
+    // Optional coordinates enabling the home page's "Use my location"
+    // nearest-town lookup. Towns without them just don't participate.
+    lat: z.number().optional(),
+    lon: z.number().optional(),
   }),
 });
 

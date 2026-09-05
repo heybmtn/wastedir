@@ -10,24 +10,12 @@
   --max-width: 760px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #14161a;
-    --color-text: #e8e8e8;
-    --color-muted: #a3a3a3;
-    --color-border: #2a2d33;
-    --color-accent: #6fae86;
-    --color-accent-contrast: #0c1210;
-    --color-chip-bg: #1d2521;
-  }
-}
-
 * {
   box-sizing: border-box;
 }
 
 html {
-  color-scheme: light dark;
+  color-scheme: light;
 }
 
 body {

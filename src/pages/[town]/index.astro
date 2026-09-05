@@ -16,11 +16,14 @@ const listings = allListings
   .filter((l) => l.data.town === town.data.slug)
   .sort((a, b) => a.data.name.localeCompare(b.data.name));
 
-const tagSet = new Set<string>();
+const serviceSet = new Set<string>();
+const materialSet = new Set<string>();
 for (const listing of listings) {
-  for (const tag of listing.data.tags) tagSet.add(tag);
+  for (const service of listing.data.services) serviceSet.add(service);
+  for (const material of listing.data.materials ?? []) materialSet.add(material);
 }
-const tags = Array.from(tagSet).sort();
+const services = Array.from(serviceSet).sort();
+const materials = Array.from(materialSet).sort();
 
 function jsonLd(listing: (typeof listings)[number]) {
   const data = listing.data;
@@ -58,21 +61,40 @@ function jsonLd(listing: (typeof listings)[number]) {
   {town.data.intro && <p class="intro">{town.data.intro}</p>}
 
   {
-    tags.length > 0 && (
-      <div class="chip-row" id="chip-row" role="group" aria-label="Filter by tag">
-        {tags.map((tag) => (
-          <button type="button" class="chip" data-tag={tag} aria-pressed="false">
-            {tag}
+    services.length > 0 && (
+      <div class="chip-row" id="service-chip-row" role="group" aria-label="Filter by service">
+        <span class="chip-group-label">Service</span>
+        {services.map((service) => (
+          <button type="button" class="chip" data-facet="service" data-tag={service} aria-pressed="false">
+            {service}
           </button>
         ))}
-        <button type="button" class="chip-clear" id="chip-clear">
-          Clear filters
-        </button>
       </div>
     )
   }
 
-  <p class="search-empty" id="listing-empty">No listings match the selected tags.</p>
+  {
+    materials.length > 0 && (
+      <div class="chip-row" id="material-chip-row" role="group" aria-label="Filter by material">
+        <span class="chip-group-label">Material</span>
+        {materials.map((material) => (
+          <button type="button" class="chip" data-facet="material" data-tag={material} aria-pressed="false">
+            {material}
+          </button>
+        ))}
+      </div>
+    )
+  }
+
+  {
+    (services.length > 0 || materials.length > 0) && (
+      <button type="button" class="chip-clear" id="chip-clear">
+        Clear filters
+      </button>
+    )
+  }
+
+  <p class="search-empty" id="listing-empty">No listings match the selected filters.</p>
 
   {
     listings.length === 0 ? (
@@ -82,13 +104,24 @@ function jsonLd(listing: (typeof listings)[number]) {
         {listings.map((listing) => {
           const data = listing.data;
           return (
-            <li class="listing-card" data-tags={data.tags.join('|')}>
+            <li
+              class="listing-card"
+              data-services={data.services.join('|')}
+              data-materials={(data.materials ?? []).join('|')}
+            >
               <script type="application/ld+json" set:html={jsonLd(listing)} is:inline />
               <h3>{data.name}</h3>
-              <span class="listing-category">{data.category}</span>
+              <ul class="listing-categories">
+                {data.categories.map((category) => (
+                  <li>{category}</li>
+                ))}
+              </ul>
               <ul class="listing-tags">
-                {data.tags.map((tag) => (
-                  <li>{tag}</li>
+                {data.services.map((service) => (
+                  <li class="tag-service">{service}</li>
+                ))}
+                {(data.materials ?? []).map((material) => (
+                  <li class="tag-material">{material}</li>
                 ))}
               </ul>
               {(data.address || data.postcode) && (
@@ -123,22 +156,29 @@ function jsonLd(listing: (typeof listings)[number]) {
   }
 
   <script>
-    const chipRow = document.getElementById('chip-row');
     const clearBtn = document.getElementById('chip-clear');
     const cards = Array.from(document.querySelectorAll<HTMLLIElement>('#listing-list .listing-card'));
     const empty = document.getElementById('listing-empty');
+    const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.chip'));
 
-    if (chipRow) {
-      const chips = Array.from(chipRow.querySelectorAll<HTMLButtonElement>('.chip'));
-      const activeTags = new Set<string>();
+    if (chips.length > 0) {
+      const activeByFacet = { service: new Set<string>(), material: new Set<string>() };
 
       function applyFilter() {
-        if (clearBtn) clearBtn.style.display = activeTags.size > 0 ? 'inline' : 'none';
+        const anyActive = activeByFacet.service.size > 0 || activeByFacet.material.size > 0;
+        if (clearBtn) clearBtn.style.display = anyActive ? 'inline' : 'none';
 
         let visibleCount = 0;
         for (const card of cards) {
-          const cardTags = (card.dataset.tags ?? '').split('|');
-          const matches = activeTags.size === 0 || cardTags.some((t) => activeTags.has(t));
+          const cardServices = (card.dataset.services ?? '').split('|');
+          const cardMaterials = (card.dataset.materials ?? '').split('|');
+          const matchesServices =
+            activeByFacet.service.size === 0 ||
+            cardServices.some((s) => activeByFacet.service.has(s));
+          const matchesMaterials =
+            activeByFacet.material.size === 0 ||
+            cardMaterials.some((m) => activeByFacet.material.has(m));
+          const matches = matchesServices && matchesMaterials;
           card.hidden = !matches;
           if (matches) visibleCount++;
         }
@@ -148,17 +188,19 @@ function jsonLd(listing: (typeof listings)[number]) {
       for (const chip of chips) {
         chip.addEventListener('click', () => {
           const tag = chip.dataset.tag;
+          const facet = chip.dataset.facet === 'material' ? 'material' : 'service';
           if (!tag) return;
           const isActive = chip.getAttribute('aria-pressed') === 'true';
           chip.setAttribute('aria-pressed', String(!isActive));
-          if (isActive) activeTags.delete(tag);
-          else activeTags.add(tag);
+          if (isActive) activeByFacet[facet].delete(tag);
+          else activeByFacet[facet].add(tag);
           applyFilter();
         });
       }
 
       clearBtn?.addEventListener('click', () => {
-        activeTags.clear();
+        activeByFacet.service.clear();
+        activeByFacet.material.clear();
         for (const chip of chips) chip.setAttribute('aria-pressed', 'false');
         applyFilter();
       });

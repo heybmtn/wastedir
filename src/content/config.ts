@@ -18,6 +18,41 @@ export const CATEGORIES = [
   'Other Recycling & Waste Services',
 ] as const;
 
+// What a business DOES.
+export const SERVICES = [
+  'Skip Hire',
+  'Waste Collection',
+  'Drop-off / Recycling Centre',
+  'House Clearance',
+  'Garage Clearance',
+  'Office & Commercial Clearance',
+  'Man & Van Removal',
+  'Document Shredding',
+  'Scrap Collection',
+  'Site Clearance',
+  'Demolition & Strip-out',
+  'Grab Hire',
+] as const;
+
+// What a business ACCEPTS or PROCESSES.
+export const MATERIALS = [
+  'Household Waste',
+  'Garden Waste',
+  'Metal',
+  'Wood',
+  'Cardboard & Paper',
+  'Plastic',
+  'Glass',
+  'Soil & Rubble',
+  'Electronics & WEEE',
+  'Batteries',
+  'Textiles',
+  'Furniture & Appliances',
+  'Tyres',
+  'Hazardous Materials',
+  'Construction Waste',
+] as const;
+
 const towns = defineCollection({
   type: 'data',
   schema: z.object({
@@ -33,13 +68,22 @@ const listings = defineCollection({
   schema: z.object({
     name: z.string(),
     town: z.string(),
-    category: z.enum(CATEGORIES),
-    tags: z.array(z.string()),
+    // A business can sit under more than one directory category
+    // (e.g. a scrap merchant under both Scrap Metal & Salvage and
+    // Vehicle & Tyre Recycling).
+    categories: z.array(z.enum(CATEGORIES)).min(1),
+    // What the business does.
+    services: z.array(z.enum(SERVICES)).min(1),
+    // What the business accepts or processes. Kept separate from
+    // `services` so filtering/search can facet on either independently.
+    materials: z.array(z.enum(MATERIALS)).optional(),
     address: z.string().optional(),
     postcode: z.string().optional(),
     phone: z.string().optional(),
     website: z.string().optional(),
     description: z.string().optional(),
+    // Free-text specifics for display only (e.g. "fridges and freezers"),
+    // distinct from the controlled `materials` list used for filtering.
     acceptedMaterials: z.array(z.string()).optional(),
     hours: z.string().optional(),
   }),

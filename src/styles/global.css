@@ -233,8 +233,16 @@ p.intro {
 .chip-row {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.5rem;
-  margin: 1.25rem 0;
+  margin: 1rem 0;
+}
+
+.chip-group-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  margin-right: 0.25rem;
 }
 
 .chip {
@@ -295,12 +303,25 @@ p.intro {
   font-size: 1.05rem;
 }
 
-.listing-category {
-  display: inline-block;
+.listing-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.listing-categories li {
   font-size: 0.8rem;
   color: var(--color-accent);
   font-weight: 600;
-  margin-bottom: 0.5rem;
+}
+
+.listing-categories li:not(:last-child)::after {
+  content: '·';
+  margin-left: 0.4rem;
+  color: var(--color-border);
 }
 
 .listing-tags {
@@ -318,6 +339,10 @@ p.intro {
   border-radius: 999px;
   padding: 0.2rem 0.6rem;
   color: var(--color-muted);
+}
+
+.listing-tags li.tag-material {
+  background: var(--color-border);
 }
 
 .listing-meta {
@@ -358,9 +383,41 @@ p.intro {
   gap: 0.3rem;
 }
 
-.form-field label {
+.form-field label,
+.form-field-label {
   font-size: 0.9rem;
   font-weight: 500;
+}
+
+.form-field-label {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.checkbox-option input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--color-accent);
 }
 
 .form-field input,

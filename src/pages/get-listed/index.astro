@@ -39,11 +39,15 @@ const contactEmail = 'listings@wastelist.uk';
     </div>
 
     <div class="form-field">
-      <label for="category">Category</label>
-      <select id="category" name="Category" required>
-        <option value="" selected disabled>Choose a category…</option>
-        {CATEGORIES.map((category) => <option value={category}>{category}</option>)}
-      </select>
+      <span class="form-field-label">Categories (select all that apply)</span>
+      <div class="checkbox-group">
+        {CATEGORIES.map((category) => (
+          <label class="checkbox-option">
+            <input type="checkbox" name="Category" value={category} />
+            {category}
+          </label>
+        ))}
+      </div>
     </div>
 
     <div class="form-field">
@@ -72,7 +76,7 @@ const contactEmail = 'listings@wastelist.uk';
         id="details"
         name="Details"
         rows="5"
-        placeholder="What materials do you accept, opening hours, and any tags that describe you (e.g. household waste, drop-off, free)."
+        placeholder="What services you offer (e.g. skip hire, collection), what materials you accept (e.g. metal, wood, cardboard), and your opening hours."
       ></textarea>
     </div>
 

@@ -8,8 +8,8 @@ data files under `src/content/`.
 
 - Astro (static output, no adapter)
 - TypeScript content schemas (Zod)
-- Vanilla JS for search and tag filtering (progressive enhancement — everything works
-  without JS, JS just adds filtering)
+- Vanilla JS for search and service/material facet filtering (progressive enhancement —
+  everything works without JS, JS just adds filtering)
 - Plain CSS, no framework
 
 ## Project structure
@@ -24,7 +24,7 @@ src/
     BaseLayout.astro
   pages/
     index.astro       # home page: town list + search
-    [town]/index.astro # town page: listings + tag chip filtering
+    [town]/index.astro # town page: listings + service/material facet filtering
   styles/
     global.css
 public/
@@ -57,42 +57,61 @@ Create a new file in `src/content/listings/`, e.g.
 {
   "name": "Newtown Recycling Centre",
   "town": "newtown",
-  "category": "Rubbish & Waste Removal",
-  "tags": ["household waste", "garden waste", "drop-off", "council-run", "free"],
+  "categories": ["Rubbish & Waste Removal", "Skips & Containers"],
+  "services": ["Waste Collection", "Skip Hire"],
+  "materials": ["Household Waste", "Garden Waste"],
   "address": "1 Example Road, Newtown",
   "postcode": "NT1 1AA",
   "phone": "01234 000000",
   "website": "https://example.com",
   "description": "Optional description of the service.",
-  "acceptedMaterials": ["general household waste", "garden waste"],
+  "acceptedMaterials": ["fridges and freezers", "car batteries"],
   "hours": "Mon–Sun 8am–6pm"
 }
 ```
 
-Only `name`, `town`, `category`, and `tags` are required — every other field is optional and
-only rendered when present. `town` must match an existing town's `slug`. `tags` drive the
-filter chips shown on that town's page, so keep them short and reusable across listings
-(e.g. `household waste`, `garden waste`, `electronics/WEEE`, `batteries`, `textiles`,
-`scrap metal`, `hazardous`, `construction waste`, `drop-off`, `collection service`,
-`council-run`, `free`).
+Only `name`, `town`, `categories`, and `services` are required — every other field is
+optional and only rendered when present. `town` must match an existing town's `slug`.
 
-`category` must be one of the fixed values defined in `CATEGORIES` in `src/content/config.ts`:
+There are three separate, purpose-built lists, each defined in `src/content/config.ts`:
 
-1. Rubbish & Waste Removal
-2. Garden & Green Waste
-3. Scrap Metal & Salvage
-4. Skips & Containers
-5. House & Garage Clearance
-6. Commercial & Trade Waste
-7. Building & Construction Waste
-8. Furniture & Appliance Recycling
-9. Electrical & IT Recycling
-10. Paper, Cardboard & Packaging
-11. Specialist & Hazardous Waste
-12. Document Shredding & Data Destruction
-13. Vehicle & Tyre Recycling
-14. Wood & Timber Recycling
-15. Other Recycling & Waste Services
+- **`categories`** (array, required, ≥1) — the directory buckets a business is browsable
+  under. A business can sit under more than one, e.g. a scrap merchant could list both
+  `Scrap Metal & Salvage` and `Vehicle & Tyre Recycling`. Fixed values (`CATEGORIES`):
+
+  1. Rubbish & Waste Removal
+  2. Garden & Green Waste
+  3. Scrap Metal & Salvage
+  4. Skips & Containers
+  5. House & Garage Clearance
+  6. Commercial & Trade Waste
+  7. Building & Construction Waste
+  8. Furniture & Appliance Recycling
+  9. Electrical & IT Recycling
+  10. Paper, Cardboard & Packaging
+  11. Specialist & Hazardous Waste
+  12. Document Shredding & Data Destruction
+  13. Vehicle & Tyre Recycling
+  14. Wood & Timber Recycling
+  15. Other Recycling & Waste Services
+
+- **`services`** (array, required, ≥1) — what the business *does* (the action). Fixed
+  values (`SERVICES`): Skip Hire, Waste Collection, Drop-off / Recycling Centre, House
+  Clearance, Garage Clearance, Office & Commercial Clearance, Man & Van Removal, Document
+  Shredding, Scrap Collection, Site Clearance, Demolition & Strip-out, Grab Hire.
+
+- **`materials`** (array, optional) — what the business *accepts or processes*. Fixed
+  values (`MATERIALS`): Household Waste, Garden Waste, Metal, Wood, Cardboard & Paper,
+  Plastic, Glass, Soil & Rubble, Electronics & WEEE, Batteries, Textiles, Furniture &
+  Appliances, Tyres, Hazardous Materials, Construction Waste.
+
+Keeping `services` and `materials` separate (rather than one flat tag list) is what
+powers the town page's two-facet filter: selecting chips within a facet is OR'd together,
+selecting across both facets is AND'd (e.g. "Metal" + "Wood" materials AND "Scrap
+Collection" service).
+
+`acceptedMaterials` is a separate, free-text field for display-only specifics (e.g. "fridges
+and freezers") that don't need to match the controlled `materials` list.
 
 ## Local development
 

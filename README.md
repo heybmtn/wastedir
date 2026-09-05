@@ -143,6 +143,17 @@ page's "Browse by service" grid links to a curated subset of 8 categories
 (`FEATURED_CATEGORIES` in the same file, with shorter display labels) plus a "More →" link
 to the full `/categories/` index.
 
+## Data sourcing
+
+The Oxfordshire listings in `src/content/listings/` are real UK businesses (not
+placeholders), found via web search. Each one has a genuine business name and website URL
+found in current search results, which is the best available signal that a listing is
+"live and working" — this repo's tooling can't directly fetch arbitrary external sites to
+confirm each one loads. Contact details (phone/address/postcode) are included only where a
+search result actually stated them; fields left out simply weren't found, rather than
+guessed. If you find a listing that's gone stale (closed, changed number, dead site) or
+incorrect, please fix or remove it — accuracy matters more than coverage.
+
 ## Local development
 
 ```bash

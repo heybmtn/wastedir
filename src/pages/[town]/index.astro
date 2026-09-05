@@ -62,26 +62,30 @@ function jsonLd(listing: (typeof listings)[number]) {
 
   {
     services.length > 0 && (
-      <div class="chip-row" id="service-chip-row" role="group" aria-label="Filter by service">
+      <div class="chip-group">
         <span class="chip-group-label">Service</span>
-        {services.map((service) => (
-          <button type="button" class="chip" data-facet="service" data-tag={service} aria-pressed="false">
-            {service}
-          </button>
-        ))}
+        <div class="chip-row" id="service-chip-row" role="group" aria-label="Filter by service">
+          {services.map((service) => (
+            <button type="button" class="chip" data-facet="service" data-tag={service} aria-pressed="false">
+              {service}
+            </button>
+          ))}
+        </div>
       </div>
     )
   }
 
   {
     materials.length > 0 && (
-      <div class="chip-row" id="material-chip-row" role="group" aria-label="Filter by material">
+      <div class="chip-group">
         <span class="chip-group-label">Material</span>
-        {materials.map((material) => (
-          <button type="button" class="chip" data-facet="material" data-tag={material} aria-pressed="false">
-            {material}
-          </button>
-        ))}
+        <div class="chip-row" id="material-chip-row" role="group" aria-label="Filter by material">
+          {materials.map((material) => (
+            <button type="button" class="chip" data-facet="material" data-tag={material} aria-pressed="false">
+              {material}
+            </button>
+          ))}
+        </div>
       </div>
     )
   }
@@ -111,11 +115,7 @@ function jsonLd(listing: (typeof listings)[number]) {
             >
               <script type="application/ld+json" set:html={jsonLd(listing)} is:inline />
               <h3>{data.name}</h3>
-              <ul class="listing-categories">
-                {data.categories.map((category) => (
-                  <li>{category}</li>
-                ))}
-              </ul>
+              <p class="listing-categories">{data.categories.join(' · ')}</p>
               <ul class="listing-tags">
                 {data.services.map((service) => (
                   <li class="tag-service">{service}</li>

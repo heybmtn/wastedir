@@ -1,4 +1,4 @@
-# WasteDir
+# WasteList
 
 A static directory site for recycling & waste services, organised by town. Built with
 [Astro](https://astro.build), no backend, no database — all content lives in the repo as

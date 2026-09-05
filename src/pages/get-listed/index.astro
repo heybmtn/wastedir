@@ -6,12 +6,12 @@ const towns = (await getCollection('towns')).sort((a, b) =>
   a.data.name.localeCompare(b.data.name)
 );
 
-const contactEmail = 'listings@wastedir.example';
+const contactEmail = 'listings@wastelist.uk';
 ---
 
 <BaseLayout
-  title="Get listed — WasteDir"
-  description="Add your recycling, scrap, or waste collection service to the WasteDir directory."
+  title="Get listed — WasteList"
+  description="Add your recycling, scrap, or waste collection service to the WasteList directory."
 >
   <Fragment slot="breadcrumb">
     <a href="/">All towns</a> / Get listed

@@ -148,6 +148,28 @@ p.intro-note {
   font-size: 0.85rem;
 }
 
+.sponsor-slot {
+  border: 1px dashed var(--color-border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+}
+
+.sponsor-slot-label {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.sponsor-slot-text {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
 .section {
   margin: 2.25rem 0;
 }

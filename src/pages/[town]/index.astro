@@ -30,5 +30,13 @@ const listings = allListings
   {town.data.region && <p class="intro">{town.data.region}</p>}
   {town.data.intro && <p class="intro">{town.data.intro}</p>}
 
+  <div class="sponsor-slot">
+    <p class="sponsor-slot-label">Sponsored</p>
+    <p class="sponsor-slot-text">
+      Want your business featured here? <a href="/get-listed/">Get in touch</a> to
+      sponsor the {town.data.name} page.
+    </p>
+  </div>
+
   <ListingResults listings={listings} emptyMessage={`No listings yet for ${town.data.name}.`} />
 </BaseLayout>

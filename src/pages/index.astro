@@ -23,35 +23,83 @@ const isCompactGrid = towns.length <= 4;
 const townCoords = towns
   .filter((t) => t.data.lat != null && t.data.lon != null)
   .map((t) => ({ slug: t.data.slug, lat: t.data.lat, lon: t.data.lon }));
+
+const quoteEmail = 'quotes@wastelist.uk';
 ---
 
 <BaseLayout
-  title="WasteList — Find local recycling & waste services"
-  description="A directory of paid recycling, scrap, and waste removal services by town."
+  title="WasteList — Get quotes from local waste & recycling companies"
+  description="Tell us what needs clearing and we'll pass your request to local, paid waste and recycling businesses."
 >
-  <h1>Find local waste &amp; recycling services</h1>
-  <p class="intro">Find businesses for recycling, waste removal, disposal and more.</p>
+  <h1>Get waste removed without the hassle</h1>
+  <p class="intro">
+    Tell us what you need cleared and we'll pass your request to local waste companies —
+    instead of ringing round for quotes yourself.
+  </p>
+
+  <form class="listing-form" action={`mailto:${quoteEmail}`} method="post" enctype="text/plain">
+    <div class="form-field">
+      <label for="postcode">Postcode</label>
+      <input type="text" id="postcode" name="Postcode" required />
+    </div>
+
+    <div class="form-field">
+      <label for="waste-type">What do you need removed?</label>
+      <select id="waste-type" name="Waste type" required>
+        <option value="" selected disabled>Choose an option…</option>
+        <option>Rubbish / junk</option>
+        <option>House clearance</option>
+        <option>Garden waste</option>
+        <option>Builder's waste</option>
+        <option>Furniture</option>
+        <option>Skip hire</option>
+        <option>Commercial waste</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label for="timing">When?</label>
+      <select id="timing" name="Timing" required>
+        <option value="" selected disabled>Choose an option…</option>
+        <option>Today</option>
+        <option>Tomorrow</option>
+        <option>This week</option>
+        <option>Flexible</option>
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label for="email">Your contact email</label>
+      <input type="email" id="email" name="Contact email" required />
+    </div>
+
+    <div class="form-field">
+      <label for="phone">Phone (optional)</label>
+      <input type="tel" id="phone" name="Phone" />
+    </div>
+
+    <div class="form-field">
+      <label for="details">Additional details (optional)</label>
+      <textarea
+        id="details"
+        name="Details"
+        rows="4"
+        placeholder="Roughly how much needs clearing, access for a van, anything else worth knowing."
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn">Get my quotes</button>
+  </form>
 
   <section class="section">
-    <h2>Where do you need a service?</h2>
-
-    <div class="search-box">
-      <label for="town-search">Search by town or postcode</label>
-      <div class="search-input-wrap">
-        <svg class="search-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-          <circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.6" />
-          <path d="M18 18l-4.3-4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-        </svg>
-        <input
-          type="search"
-          id="town-search"
-          placeholder="Search by town or postcode…"
-          autocomplete="off"
-        />
-      </div>
-      <button type="button" class="use-location" id="use-location" hidden>Use my location</button>
-      <p class="use-location-status" id="use-location-status" hidden></p>
-    </div>
+    <h2>Why use WasteList</h2>
+    <ul class="trust-list">
+      <li><strong>Free to use</strong> — there's no charge to request quotes.</li>
+      <li><strong>Local</strong> — your request goes to waste companies covering your area.</li>
+      <li><strong>One request, not ten calls</strong> — tell us once instead of ringing round.</li>
+      <li><strong>No spam</strong> — your details are shared only with waste companies, never sold on.</li>
+    </ul>
   </section>
 
   <section class="section">
@@ -72,6 +120,24 @@ const townCoords = towns
 
   <section class="section">
     <h2>Popular towns</h2>
+
+    <div class="search-box">
+      <label for="town-search">Search by town or postcode</label>
+      <div class="search-input-wrap">
+        <svg class="search-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.6" />
+          <path d="M18 18l-4.3-4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </svg>
+        <input
+          type="search"
+          id="town-search"
+          placeholder="Search by town or postcode…"
+          autocomplete="off"
+        />
+      </div>
+      <button type="button" class="use-location" id="use-location" hidden>Use my location</button>
+      <p class="use-location-status" id="use-location-status" hidden></p>
+    </div>
 
     <p class="search-empty" id="search-empty">No towns match your search.</p>
 

@@ -8,12 +8,16 @@ const towns = (await getCollection('towns')).sort((a, b) =>
 const listings = await getCollection('listings');
 
 const postcodesByTown = new Map<string, string[]>();
+const countByTown = new Map<string, number>();
 for (const listing of listings) {
+  countByTown.set(listing.data.town, (countByTown.get(listing.data.town) ?? 0) + 1);
   if (!listing.data.postcode) continue;
   const existing = postcodesByTown.get(listing.data.town) ?? [];
   existing.push(listing.data.postcode);
   postcodesByTown.set(listing.data.town, existing);
 }
+
+const isCompactGrid = towns.length <= 4;
 ---
 
 <BaseLayout
@@ -44,10 +48,11 @@ for (const listing of listings) {
 
   <p class="search-empty" id="search-empty">No towns match your search.</p>
 
-  <ul class="town-grid" id="town-list">
+  <ul class={`town-grid ${isCompactGrid ? 'town-grid--compact' : ''}`} id="town-list">
     {
       towns.map((town) => {
         const postcodes = postcodesByTown.get(town.data.slug) ?? [];
+        const count = countByTown.get(town.data.slug) ?? 0;
         return (
           <li
             data-name={town.data.name.toLowerCase()}
@@ -56,6 +61,9 @@ for (const listing of listings) {
             <a href={`/${town.data.slug}/`}>
               {town.data.name}
               {town.data.region && <span class="town-region">{town.data.region}</span>}
+              <span class="town-count">
+                {count} service{count === 1 ? '' : 's'}
+              </span>
             </a>
           </li>
         );

@@ -4,9 +4,11 @@
   --color-text: #1a1a1a;
   --color-muted: #5c5c5c;
   --color-border: #e0e0e0;
-  --color-accent: #3f6b4e;
+  --color-accent: #28734a;
+  --color-accent-hover: #205c3b;
   --color-accent-contrast: #ffffff;
-  --color-chip-bg: #f2f4f2;
+  --color-accent-light: #f3f8f5;
+  --color-chip-bg: #f3f8f5;
   --max-width: 760px;
 }
 
@@ -38,6 +40,7 @@ a {
 }
 
 a:hover {
+  color: var(--color-accent-hover);
   text-decoration: none;
 }
 
@@ -86,6 +89,14 @@ footer.site-footer {
   padding: 1.5rem 0;
   color: var(--color-muted);
   font-size: 0.85rem;
+}
+
+.footer-cta {
+  margin-top: 0.6rem;
+}
+
+.footer-cta a {
+  font-weight: 600;
 }
 
 h1 {
@@ -163,10 +174,21 @@ p.intro {
   padding: 0;
 }
 
+.town-grid--compact {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 480px;
+}
+
 .town-grid li {
   border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 0.9rem 1rem;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.town-grid li:hover {
+  background: var(--color-accent-light);
+  border-color: var(--color-accent);
 }
 
 .town-grid a {
@@ -176,7 +198,7 @@ p.intro {
 }
 
 .town-grid a:hover {
-  color: var(--color-accent);
+  color: var(--color-accent-hover);
 }
 
 .town-region {
@@ -185,6 +207,14 @@ p.intro {
   font-size: 0.85rem;
   color: var(--color-muted);
   margin-top: 0.15rem;
+}
+
+.town-count {
+  display: block;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  margin-top: 0.3rem;
 }
 
 /* Tag chips */
@@ -206,10 +236,19 @@ p.intro {
   cursor: pointer;
 }
 
+.chip:hover {
+  border-color: var(--color-accent);
+}
+
 .chip[aria-pressed="true"] {
   background: var(--color-accent);
   border-color: var(--color-accent);
   color: var(--color-accent-contrast);
+}
+
+.chip[aria-pressed="true"]:hover {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
 }
 
 .chip-clear {
@@ -346,7 +385,8 @@ p.intro {
 }
 
 .listing-form button[type="submit"]:hover {
-  opacity: 0.9;
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
 }
 
 .form-alt {

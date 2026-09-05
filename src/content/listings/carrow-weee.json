@@ -1,0 +1,11 @@
+{
+  "name": "Carrow WEEE Drop-off",
+  "town": "carrow",
+  "category": "Drop-off point",
+  "tags": ["electronics/WEEE", "batteries", "drop-off", "free"],
+  "address": "Carrow Library forecourt",
+  "postcode": "CR1 2QW",
+  "description": "Small electricals and battery recycling point in the town centre.",
+  "acceptedMaterials": ["small electricals", "batteries", "chargers"],
+  "hours": "During library opening hours"
+}

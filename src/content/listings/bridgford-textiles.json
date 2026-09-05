@@ -1,0 +1,11 @@
+{
+  "name": "Bridgford Textile Bank",
+  "town": "bridgford",
+  "category": "Drop-off point",
+  "tags": ["textiles", "drop-off", "free"],
+  "address": "Bridgford Community Centre car park",
+  "postcode": "BR2 9AL",
+  "description": "Public textile recycling bank for clothing, shoes, and household linens.",
+  "acceptedMaterials": ["clothing", "shoes", "linens"],
+  "hours": "Accessible 24 hours"
+}

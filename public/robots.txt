@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wastedir.pages.dev/sitemap-index.xml

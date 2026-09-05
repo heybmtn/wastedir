@@ -1,0 +1,11 @@
+{
+  "name": "Ashwell Council Bulky Waste Collection",
+  "town": "ashwell",
+  "category": "Council collection service",
+  "tags": ["household waste", "furniture reuse", "collection service", "council-run"],
+  "phone": "01234 500404",
+  "website": "https://example.com/ashwell-council/bulky-waste",
+  "description": "Book a kerbside collection for bulky items such as sofas, mattresses, and white goods.",
+  "acceptedMaterials": ["sofas", "mattresses", "white goods", "large furniture"],
+  "hours": "Bookable Mon–Fri, collections run weekly"
+}

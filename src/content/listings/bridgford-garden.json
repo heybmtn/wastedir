@@ -1,0 +1,11 @@
+{
+  "name": "Bridgford Garden Waste Collection",
+  "town": "bridgford",
+  "category": "Council collection service",
+  "tags": ["garden waste", "collection service", "council-run"],
+  "phone": "01234 600303",
+  "website": "https://example.com/bridgford-council/garden-waste",
+  "description": "Fortnightly kerbside garden waste collection, subscription required.",
+  "acceptedMaterials": ["grass cuttings", "hedge trimmings", "small branches"],
+  "hours": "Collections every other Thursday"
+}

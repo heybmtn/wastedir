@@ -1,0 +1,12 @@
+{
+  "name": "Bridgford Electronics Recycling Point",
+  "town": "bridgford",
+  "category": "Drop-off point",
+  "tags": ["electronics/WEEE", "batteries", "drop-off", "free"],
+  "address": "Unit 4, Bridgford Retail Park",
+  "postcode": "BR1 2LP",
+  "phone": "01234 600202",
+  "description": "Free drop-off point for small electricals and household batteries.",
+  "acceptedMaterials": ["small electricals", "batteries", "mobile phones", "cables"],
+  "hours": "Mon–Sat 9am–6pm"
+}

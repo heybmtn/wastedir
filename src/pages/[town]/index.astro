@@ -1,0 +1,169 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const towns = await getCollection('towns');
+  return towns.map((town) => ({
+    params: { town: town.data.slug },
+    props: { town },
+  }));
+}
+
+const { town } = Astro.props;
+const allListings = await getCollection('listings');
+const listings = allListings
+  .filter((l) => l.data.town === town.data.slug)
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+const tagSet = new Set<string>();
+for (const listing of listings) {
+  for (const tag of listing.data.tags) tagSet.add(tag);
+}
+const tags = Array.from(tagSet).sort();
+
+function jsonLd(listing: (typeof listings)[number]) {
+  const data = listing.data;
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: data.name,
+    ...(data.description ? { description: data.description } : {}),
+    ...(data.address || data.postcode
+      ? {
+          address: {
+            '@type': 'PostalAddress',
+            ...(data.address ? { streetAddress: data.address } : {}),
+            ...(data.postcode ? { postalCode: data.postcode } : {}),
+            addressCountry: 'GB',
+          },
+        }
+      : {}),
+    ...(data.phone ? { telephone: data.phone } : {}),
+    ...(data.website ? { url: data.website } : {}),
+  });
+}
+---
+
+<BaseLayout
+  title={`${town.data.name} recycling & waste services — WasteDir`}
+  description={`Recycling centres, scrap merchants, reuse shops, and waste collection services in ${town.data.name}.`}
+>
+  <Fragment slot="breadcrumb">
+    <a href="/">All towns</a> / {town.data.name}
+  </Fragment>
+
+  <h1>{town.data.name}</h1>
+  {town.data.region && <p class="intro">{town.data.region}</p>}
+  {town.data.intro && <p class="intro">{town.data.intro}</p>}
+
+  {
+    tags.length > 0 && (
+      <div class="chip-row" id="chip-row" role="group" aria-label="Filter by tag">
+        {tags.map((tag) => (
+          <button type="button" class="chip" data-tag={tag} aria-pressed="false">
+            {tag}
+          </button>
+        ))}
+        <button type="button" class="chip-clear" id="chip-clear">
+          Clear filters
+        </button>
+      </div>
+    )
+  }
+
+  <p class="search-empty" id="listing-empty">No listings match the selected tags.</p>
+
+  {
+    listings.length === 0 ? (
+      <p>No listings yet for {town.data.name}.</p>
+    ) : (
+      <ul class="listing-list" id="listing-list">
+        {listings.map((listing) => {
+          const data = listing.data;
+          return (
+            <li class="listing-card" data-tags={data.tags.join('|')}>
+              <script type="application/ld+json" set:html={jsonLd(listing)} is:inline />
+              <h3>{data.name}</h3>
+              <span class="listing-category">{data.category}</span>
+              <ul class="listing-tags">
+                {data.tags.map((tag) => (
+                  <li>{tag}</li>
+                ))}
+              </ul>
+              {(data.address || data.postcode) && (
+                <p class="listing-meta">
+                  {[data.address, data.postcode].filter(Boolean).join(', ')}
+                </p>
+              )}
+              {data.phone && <p class="listing-meta">{data.phone}</p>}
+              {data.website && (
+                <p class="listing-meta">
+                  <a href={data.website} rel="noopener">
+                    {data.website.replace(/^https?:\/\//, '')}
+                  </a>
+                </p>
+              )}
+              {data.description && <p class="listing-description">{data.description}</p>}
+              {data.acceptedMaterials && data.acceptedMaterials.length > 0 && (
+                <p class="listing-materials">
+                  <strong>Accepts:</strong> {data.acceptedMaterials.join(', ')}
+                </p>
+              )}
+              {data.hours && (
+                <p class="listing-materials">
+                  <strong>Hours:</strong> {data.hours}
+                </p>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    )
+  }
+
+  <script>
+    const chipRow = document.getElementById('chip-row');
+    const clearBtn = document.getElementById('chip-clear');
+    const cards = Array.from(document.querySelectorAll<HTMLLIElement>('#listing-list .listing-card'));
+    const empty = document.getElementById('listing-empty');
+
+    if (chipRow) {
+      const chips = Array.from(chipRow.querySelectorAll<HTMLButtonElement>('.chip'));
+      const activeTags = new Set<string>();
+
+      function applyFilter() {
+        if (clearBtn) clearBtn.style.display = activeTags.size > 0 ? 'inline' : 'none';
+
+        let visibleCount = 0;
+        for (const card of cards) {
+          const cardTags = (card.dataset.tags ?? '').split('|');
+          const matches = activeTags.size === 0 || cardTags.some((t) => activeTags.has(t));
+          card.hidden = !matches;
+          if (matches) visibleCount++;
+        }
+        if (empty) empty.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+
+      for (const chip of chips) {
+        chip.addEventListener('click', () => {
+          const tag = chip.dataset.tag;
+          if (!tag) return;
+          const isActive = chip.getAttribute('aria-pressed') === 'true';
+          chip.setAttribute('aria-pressed', String(!isActive));
+          if (isActive) activeTags.delete(tag);
+          else activeTags.add(tag);
+          applyFilter();
+        });
+      }
+
+      clearBtn?.addEventListener('click', () => {
+        activeTags.clear();
+        for (const chip of chips) chip.setAttribute('aria-pressed', 'false');
+        applyFilter();
+      });
+
+      applyFilter();
+    }
+  </script>
+</BaseLayout>

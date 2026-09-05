@@ -1,0 +1,11 @@
+{
+  "name": "Denholme Council Waste Collection",
+  "town": "denholme",
+  "category": "Council collection service",
+  "tags": ["household waste", "garden waste", "collection service", "council-run"],
+  "phone": "01234 800304",
+  "website": "https://example.com/denholme-council/collections",
+  "description": "Weekly kerbside bin collections for general and garden waste.",
+  "acceptedMaterials": ["general household waste", "garden waste", "recycling"],
+  "hours": "Collections weekly, day depends on postcode"
+}

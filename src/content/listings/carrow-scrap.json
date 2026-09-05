@@ -1,0 +1,13 @@
+{
+  "name": "Carrow Metal Recycling",
+  "town": "carrow",
+  "category": "Scrap metal",
+  "tags": ["scrap metal", "construction waste", "drop-off"],
+  "address": "Unit 7, Carrow Industrial Park",
+  "postcode": "CR4 3XE",
+  "phone": "01234 700101",
+  "website": "https://example.com/carrow-metal",
+  "description": "Trade and domestic scrap metal recycling, including site clearance for building waste.",
+  "acceptedMaterials": ["steel", "copper", "cast iron", "construction offcuts"],
+  "hours": "Mon–Fri 8am–5pm"
+}

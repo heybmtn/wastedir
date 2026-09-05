@@ -1,0 +1,13 @@
+{
+  "name": "Denholme Recycling Centre",
+  "town": "denholme",
+  "category": "HWRC",
+  "tags": ["household waste", "garden waste", "construction waste", "hazardous", "drop-off", "council-run"],
+  "address": "Quarry Lane, Denholme",
+  "postcode": "DE5 6HP",
+  "phone": "01234 800101",
+  "website": "https://example.com/denholme-hwrc",
+  "description": "Accepts general household waste, garden waste, and limited amounts of building materials.",
+  "acceptedMaterials": ["general household waste", "garden waste", "bricks and rubble", "wood"],
+  "hours": "Mon–Sun 8am–5pm"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Denholme Community Reuse Shop",
+  "town": "denholme",
+  "category": "Charity reuse",
+  "tags": ["furniture reuse", "textiles", "drop-off", "free"],
+  "address": "14 Market Square, Denholme",
+  "postcode": "DE1 3JN",
+  "phone": "01234 800203",
+  "description": "Volunteer-run shop selling and donating reused furniture and clothing.",
+  "acceptedMaterials": ["furniture", "clothing", "books", "toys"],
+  "hours": "Mon–Sat 10am–4pm"
+}

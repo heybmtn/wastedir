@@ -1,10 +1,36 @@
 {
   "name": "Simply Waste Solutions",
   "town": "wallingford",
-  "categories": ["Commercial & Trade Waste"],
-  "services": ["Waste Collection"],
-  "materials": ["Household Waste", "Cardboard & Paper"],
+  "categories": [
+    "Commercial & Trade Waste"
+  ],
+  "services": [
+    "Waste Collection"
+  ],
+  "materials": [
+    "Household Waste",
+    "Cardboard & Paper"
+  ],
   "phone": "03330 433033",
   "website": "https://simplywastesolutions.co.uk",
-  "description": "Recycling-led commercial waste management company operating a depot in Wallingford, providing bin, cardboard and mixed-recyclables collections."
+  "description": "Recycling-led commercial waste management company operating a depot in Wallingford, providing bin, cardboard and mixed-recyclables collections.",
+  "socialProfiles": [
+    {
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/simplywastesolutions/"
+    },
+    {
+      "platform": "Instagram",
+      "url": "https://www.instagram.com/simplywaste/"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://uk.linkedin.com/company/simply-waste-solutions"
+    },
+    {
+      "platform": "YouTube",
+      "url": "https://www.youtube.com/@SimplyWasteYT"
+    }
+  ],
+  "lastChecked": "2026-09-06"
 }

@@ -1,12 +1,19 @@
 {
   "name": "Affordable Asbestos Removal Oxford",
   "town": "oxford",
-  "categories": ["Specialist & Hazardous Waste"],
-  "services": ["Waste Collection"],
-  "materials": ["Hazardous Materials"],
+  "categories": [
+    "Specialist & Hazardous Waste"
+  ],
+  "services": [
+    "Waste Collection"
+  ],
+  "materials": [
+    "Hazardous Materials"
+  ],
   "address": "68 Abingdon Road, Oxford",
   "postcode": "OX1 4PL",
   "phone": "01865 238174",
   "website": "https://affordable-asbestos-removal-oxford.co.uk",
-  "description": "Fully licensed asbestos removal contractor based in Oxford, offering surveys, removal and sampling since the 1980s."
+  "description": "Fully licensed asbestos removal contractor based in Oxford, offering surveys, removal and sampling since the 1980s.",
+  "lastChecked": "2026-09-06"
 }

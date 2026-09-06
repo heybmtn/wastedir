@@ -1,11 +1,18 @@
 {
   "name": "W & S Grounds Maintenance",
   "town": "wantage",
-  "categories": ["Garden & Green Waste"],
-  "services": ["Waste Collection"],
-  "materials": ["Garden Waste"],
+  "categories": [
+    "Garden & Green Waste"
+  ],
+  "services": [
+    "Waste Collection"
+  ],
+  "materials": [
+    "Garden Waste"
+  ],
   "address": "7 Hill Close, Wantage",
   "postcode": "OX12 9RU",
   "website": "https://wandsgroundsmaintenance.co.uk",
-  "description": "Family-run grounds maintenance and garden clearance business established in 1991, holding an Environment Agency waste carrier certificate."
+  "description": "Family-run grounds maintenance and garden clearance business established in 1991, holding an Environment Agency waste carrier certificate.",
+  "lastChecked": "2026-09-06"
 }

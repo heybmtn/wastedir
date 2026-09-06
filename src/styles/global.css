@@ -608,6 +608,12 @@ p.intro-note {
   color: var(--color-muted);
 }
 
+.listing-verified {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin: 0.5rem 0 0;
+}
+
 .listing-card[hidden] {
   display: none;
 }

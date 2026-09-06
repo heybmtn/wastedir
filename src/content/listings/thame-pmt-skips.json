@@ -1,11 +1,20 @@
 {
   "name": "PMT Skips",
   "town": "thame",
-  "categories": ["Building & Construction Waste"],
-  "services": ["Skip Hire", "Grab Hire"],
-  "materials": ["Construction Waste", "Soil & Rubble"],
+  "categories": [
+    "Building & Construction Waste"
+  ],
+  "services": [
+    "Skip Hire",
+    "Grab Hire"
+  ],
+  "materials": [
+    "Construction Waste",
+    "Soil & Rubble"
+  ],
   "address": "Overton Drive, Thame",
   "postcode": "OX9 3YJ",
   "website": "https://pmtskips.com/office/thame/",
-  "description": "Skip and grab hire operator based in Thame, offering skips from mini to 12-yard sizes plus RORO and grab lorries."
+  "description": "Skip and grab hire operator based in Thame, offering skips from mini to 12-yard sizes plus RORO and grab lorries.",
+  "lastChecked": "2026-09-06"
 }

@@ -25,6 +25,12 @@ for (const listing of listings) {
 const services = Array.from(serviceSet).sort();
 const materials = Array.from(materialSet).sort();
 
+const dateFormatter = new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
 function jsonLd(listing: (typeof listings)[number]) {
   const data = listing.data;
   return JSON.stringify({
@@ -149,6 +155,35 @@ function jsonLd(listing: (typeof listings)[number]) {
               <p class="listing-materials">
                 <strong>Hours:</strong> {data.hours}
               </p>
+            )}
+            {data.googleRating != null && data.googleReviewCount != null && (
+              <p class="listing-meta">
+                {data.googleBusinessProfile ? (
+                  <a href={data.googleBusinessProfile} rel="noopener">
+                    ★ {data.googleRating} ({data.googleReviewCount} reviews)
+                  </a>
+                ) : (
+                  <Fragment>
+                    ★ {data.googleRating} ({data.googleReviewCount} reviews)
+                  </Fragment>
+                )}
+              </p>
+            )}
+            {data.socialProfiles && data.socialProfiles.length > 0 && (
+              <p class="listing-meta listing-social">
+                Follow:{' '}
+                {data.socialProfiles.map((social, i) => (
+                  <Fragment>
+                    {i > 0 && ' · '}
+                    <a href={social.url} rel="noopener">
+                      {social.platform}
+                    </a>
+                  </Fragment>
+                ))}
+              </p>
+            )}
+            {data.lastChecked && (
+              <p class="listing-verified">Verified: {dateFormatter.format(data.lastChecked)}</p>
             )}
           </li>
         );

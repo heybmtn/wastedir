@@ -1,12 +1,27 @@
 {
   "name": "L.C. Hughes Metal Recycling & Car Breakers",
   "town": "bicester",
-  "categories": ["Scrap Metal & Salvage", "Vehicle & Tyre Recycling"],
-  "services": ["Scrap Collection", "Skip Hire"],
-  "materials": ["Metal"],
+  "categories": [
+    "Scrap Metal & Salvage",
+    "Vehicle & Tyre Recycling"
+  ],
+  "services": [
+    "Scrap Collection",
+    "Skip Hire"
+  ],
+  "materials": [
+    "Metal"
+  ],
   "address": "Aylesbury Road, Bicester, Oxfordshire",
   "postcode": "OX26 6RA",
   "phone": "01869 252353",
   "website": "https://lc-hughes.co.uk",
-  "description": "Scrap metal and end-of-life vehicle recycling yard on the A41 in Bicester, also offering skip collections."
+  "description": "Scrap metal and end-of-life vehicle recycling yard on the A41 in Bicester, also offering skip collections.",
+  "socialProfiles": [
+    {
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/metalbuyers/"
+    }
+  ],
+  "lastChecked": "2026-09-06"
 }

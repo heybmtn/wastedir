@@ -1,12 +1,26 @@
 {
   "name": "B & E Skip Hire",
   "town": "witney",
-  "categories": ["Skips & Containers"],
-  "services": ["Skip Hire"],
-  "materials": ["Household Waste", "Construction Waste"],
+  "categories": [
+    "Skips & Containers"
+  ],
+  "services": [
+    "Skip Hire"
+  ],
+  "materials": [
+    "Household Waste",
+    "Construction Waste"
+  ],
   "address": "115 Brize Norton Road, Minster Lovell, Witney",
   "postcode": "OX29 0SQ",
   "phone": "01993 775571",
   "website": "https://bandetransport.co.uk",
-  "hours": "Mon–Fri 7am–5pm, Sat 7am–12pm"
+  "hours": "Mon\u2013Fri 7am\u20135pm, Sat 7am\u201312pm",
+  "socialProfiles": [
+    {
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/p/BE-skip-hire-100057266927205/"
+    }
+  ],
+  "lastChecked": "2026-09-06"
 }

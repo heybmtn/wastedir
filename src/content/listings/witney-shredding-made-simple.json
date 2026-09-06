@@ -1,11 +1,28 @@
 {
   "name": "Shredding Made Simple",
   "town": "witney",
-  "categories": ["Document Shredding & Data Destruction"],
-  "services": ["Document Shredding"],
-  "materials": ["Cardboard & Paper"],
+  "categories": [
+    "Document Shredding & Data Destruction"
+  ],
+  "services": [
+    "Document Shredding"
+  ],
+  "materials": [
+    "Cardboard & Paper"
+  ],
   "address": "3 Horne Lane, Witney, Oxfordshire",
   "postcode": "OX29 7AL",
   "website": "https://www.shreddingmadesimple.co.uk",
-  "description": "Independent family-run shredding business based in Witney, providing confidential document, hard-drive and branded-clothing shredding."
+  "description": "Independent family-run shredding business based in Witney, providing confidential document, hard-drive and branded-clothing shredding.",
+  "socialProfiles": [
+    {
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/ShreddingMadeSimple/"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://uk.linkedin.com/company/shredding-made-simple"
+    }
+  ],
+  "lastChecked": "2026-09-06"
 }

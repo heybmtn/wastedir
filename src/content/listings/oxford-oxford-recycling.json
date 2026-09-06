@@ -1,10 +1,17 @@
 {
   "name": "Oxford Recycling",
   "town": "oxford",
-  "categories": ["Paper, Cardboard & Packaging"],
-  "services": ["Waste Collection"],
-  "materials": ["Cardboard & Paper"],
+  "categories": [
+    "Paper, Cardboard & Packaging"
+  ],
+  "services": [
+    "Waste Collection"
+  ],
+  "materials": [
+    "Cardboard & Paper"
+  ],
   "phone": "01865 575092",
   "website": "https://oxfordrecycling.co.uk",
-  "description": "Oxford-focused commercial waste and recycling collector offering dry mixed recycling for businesses across the city."
+  "description": "Oxford-focused commercial waste and recycling collector offering dry mixed recycling for businesses across the city.",
+  "lastChecked": "2026-09-06"
 }

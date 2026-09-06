@@ -1,12 +1,25 @@
 {
   "name": "Amity Group",
   "town": "witney",
-  "categories": ["Specialist & Hazardous Waste"],
-  "services": ["Waste Collection"],
-  "materials": ["Hazardous Materials"],
+  "categories": [
+    "Specialist & Hazardous Waste"
+  ],
+  "services": [
+    "Waste Collection"
+  ],
+  "materials": [
+    "Hazardous Materials"
+  ],
   "address": "Windrush House, Lynch Hill, Witney, Oxfordshire",
   "postcode": "OX29 5BB",
   "phone": "0800 877 8310",
   "website": "https://www.amitygroup.co.uk",
-  "description": "Environmental services company headquartered in Witney, specialising in licensed asbestos removal, surveying and disposal since 1982."
+  "description": "Environmental services company headquartered in Witney, specialising in licensed asbestos removal, surveying and disposal since 1982.",
+  "socialProfiles": [
+    {
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/amitygroup.co.uk/"
+    }
+  ],
+  "lastChecked": "2026-09-06"
 }

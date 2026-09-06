@@ -1,12 +1,41 @@
 {
   "name": "Grundon Waste Management Ltd",
   "town": "wallingford",
-  "categories": ["Specialist & Hazardous Waste", "Commercial & Trade Waste"],
-  "services": ["Waste Collection", "Document Shredding"],
-  "materials": ["Household Waste", "Hazardous Materials", "Cardboard & Paper"],
+  "categories": [
+    "Specialist & Hazardous Waste",
+    "Commercial & Trade Waste"
+  ],
+  "services": [
+    "Waste Collection",
+    "Document Shredding"
+  ],
+  "materials": [
+    "Household Waste",
+    "Hazardous Materials",
+    "Cardboard & Paper"
+  ],
   "address": "Thames House, Oxford Road, Benson, Wallingford, Oxfordshire",
   "postcode": "OX10 6LX",
   "phone": "01491 834311",
   "website": "https://www.grundon.com",
-  "description": "The largest family-owned waste management company in the UK, headquartered in Wallingford, offering general, recycling, hazardous and confidential waste services."
+  "description": "The largest family-owned waste management company in the UK, headquartered in Wallingford, offering general, recycling, hazardous and confidential waste services.",
+  "socialProfiles": [
+    {
+      "platform": "Instagram",
+      "url": "https://www.instagram.com/grundonrecycle/"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://uk.linkedin.com/company/grundon-waste-management-ltd"
+    },
+    {
+      "platform": "X",
+      "url": "https://x.com/grundonrecycle"
+    },
+    {
+      "platform": "YouTube",
+      "url": "https://www.youtube.com/c/grundon"
+    }
+  ],
+  "lastChecked": "2026-09-06"
 }

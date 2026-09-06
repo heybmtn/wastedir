@@ -1,11 +1,36 @@
 {
   "name": "Oxford Garden Design Ltd",
   "town": "witney",
-  "categories": ["Garden & Green Waste"],
-  "services": ["Waste Collection"],
-  "materials": ["Garden Waste"],
+  "categories": [
+    "Garden & Green Waste"
+  ],
+  "services": [
+    "Waste Collection"
+  ],
+  "materials": [
+    "Garden Waste"
+  ],
   "address": "4 Witan Way, Witney, Oxfordshire",
   "postcode": "OX28 6FF",
   "website": "https://oxfordgardendesign.co.uk",
-  "description": "Garden design and maintenance company based in Witney offering a dedicated garden clearance service."
+  "description": "Garden design and maintenance company based in Witney offering a dedicated garden clearance service.",
+  "socialProfiles": [
+    {
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/oxfordgardendesign/"
+    },
+    {
+      "platform": "Instagram",
+      "url": "https://www.instagram.com/oxfordgardendesign.co.uk/"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/company/oxford-garden-design"
+    },
+    {
+      "platform": "YouTube",
+      "url": "https://www.youtube.com/@oxfordgardendesign_witney/videos"
+    }
+  ],
+  "lastChecked": "2026-09-06"
 }

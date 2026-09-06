@@ -1,11 +1,43 @@
 {
   "name": "RJS Waste Management UK Ltd",
   "town": "abingdon",
-  "categories": ["Specialist & Hazardous Waste", "Building & Construction Waste"],
-  "services": ["Demolition & Strip-out", "Site Clearance"],
-  "materials": ["Hazardous Materials", "Construction Waste"],
+  "categories": [
+    "Specialist & Hazardous Waste",
+    "Building & Construction Waste"
+  ],
+  "services": [
+    "Demolition & Strip-out",
+    "Site Clearance"
+  ],
+  "materials": [
+    "Hazardous Materials",
+    "Construction Waste"
+  ],
   "address": "2/4 Marcham Road, Abingdon",
   "postcode": "OX14 1AA",
   "website": "https://rjswastemanagement.co.uk",
-  "description": "UKATA/ARCA-trained asbestos removal contractor based in Abingdon, also offering site clearances, soft-strip works and demolition."
+  "description": "UKATA/ARCA-trained asbestos removal contractor based in Abingdon, also offering site clearances, soft-strip works and demolition.",
+  "socialProfiles": [
+    {
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/rjswastemanagementuk/"
+    },
+    {
+      "platform": "Instagram",
+      "url": "https://www.instagram.com/rjswastemanagement_uk/"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/company/rjs-waste-management-uk-limited"
+    },
+    {
+      "platform": "X",
+      "url": "https://twitter.com/rjswaste"
+    },
+    {
+      "platform": "YouTube",
+      "url": "https://www.youtube.com/channel/UCeBSCKMYXp1PGDKpOkGAZeQ"
+    }
+  ],
+  "lastChecked": "2026-09-06"
 }

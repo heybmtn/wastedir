@@ -1,9 +1,18 @@
 {
   "name": "Man And Van Oxford",
   "town": "oxford",
-  "categories": ["Rubbish & Waste Removal"],
-  "services": ["Waste Collection", "Man & Van Removal"],
-  "materials": ["Household Waste", "Furniture & Appliances"],
+  "categories": [
+    "Rubbish & Waste Removal"
+  ],
+  "services": [
+    "Waste Collection",
+    "Man & Van Removal"
+  ],
+  "materials": [
+    "Household Waste",
+    "Furniture & Appliances"
+  ],
   "phone": "01865 238189",
-  "website": "https://hire-man-and-van-oxford.co.uk"
+  "website": "https://hire-man-and-van-oxford.co.uk",
+  "lastChecked": "2026-09-06"
 }

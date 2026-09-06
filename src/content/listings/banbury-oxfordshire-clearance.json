@@ -1,11 +1,27 @@
 {
   "name": "Oxfordshire Clearance",
   "town": "banbury",
-  "categories": ["House & Garage Clearance", "Rubbish & Waste Removal"],
-  "services": ["House Clearance", "Waste Collection"],
-  "materials": ["Household Waste", "Furniture & Appliances"],
+  "categories": [
+    "House & Garage Clearance",
+    "Rubbish & Waste Removal"
+  ],
+  "services": [
+    "House Clearance",
+    "Waste Collection"
+  ],
+  "materials": [
+    "Household Waste",
+    "Furniture & Appliances"
+  ],
   "address": "Trinity Way, Adderbury, Banbury",
   "postcode": "OX17 3SN",
   "phone": "01865 238343",
-  "website": "https://oxfordshireclearance.co.uk"
+  "website": "https://oxfordshireclearance.co.uk",
+  "socialProfiles": [
+    {
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/oxfordshireclearance/"
+    }
+  ],
+  "lastChecked": "2026-09-06"
 }

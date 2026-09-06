@@ -1,10 +1,21 @@
 {
   "name": "AllRubbish2Go",
   "town": "henley-on-thames",
-  "categories": ["Garden & Green Waste", "House & Garage Clearance"],
-  "services": ["House Clearance", "Man & Van Removal"],
-  "materials": ["Household Waste", "Garden Waste", "Furniture & Appliances"],
+  "categories": [
+    "Garden & Green Waste",
+    "House & Garage Clearance"
+  ],
+  "services": [
+    "House Clearance",
+    "Man & Van Removal"
+  ],
+  "materials": [
+    "Household Waste",
+    "Garden Waste",
+    "Furniture & Appliances"
+  ],
   "phone": "01491 727041",
   "website": "https://allrubbish2go.co.uk",
-  "description": "Local team offering house/garage clearance, garden clearance and waste removal for Henley-on-Thames."
+  "description": "Local team offering house/garage clearance, garden clearance and waste removal for Henley-on-Thames.",
+  "lastChecked": "2026-09-06"
 }

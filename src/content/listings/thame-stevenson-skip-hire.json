@@ -1,9 +1,17 @@
 {
   "name": "Stevenson Skip Hire",
   "town": "thame",
-  "categories": ["Skips & Containers"],
-  "services": ["Skip Hire"],
-  "materials": ["Household Waste", "Construction Waste"],
+  "categories": [
+    "Skips & Containers"
+  ],
+  "services": [
+    "Skip Hire"
+  ],
+  "materials": [
+    "Household Waste",
+    "Construction Waste"
+  ],
   "phone": "01844 888733",
-  "website": "https://www.stevensonskiphire.co.uk"
+  "website": "https://www.stevensonskiphire.co.uk",
+  "lastChecked": "2026-09-06"
 }

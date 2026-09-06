@@ -1,12 +1,31 @@
 {
   "name": "Mattingley Ltd",
   "town": "wantage",
-  "categories": ["Building & Construction Waste"],
-  "services": ["Grab Hire", "Site Clearance"],
-  "materials": ["Soil & Rubble", "Construction Waste"],
+  "categories": [
+    "Building & Construction Waste"
+  ],
+  "services": [
+    "Grab Hire",
+    "Site Clearance"
+  ],
+  "materials": [
+    "Soil & Rubble",
+    "Construction Waste"
+  ],
   "address": "Grove Business Centre, Grove Technology Park, Wantage, Oxon",
   "postcode": "OX12 9FA",
   "phone": "01235 227285",
   "website": "https://www.mattingleygrab.co.uk",
-  "description": "Grab hire, muck-away and aggregates supply company based in Wantage, serving Didcot, Oxford and the wider region."
+  "description": "Grab hire, muck-away and aggregates supply company based in Wantage, serving Didcot, Oxford and the wider region.",
+  "socialProfiles": [
+    {
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/mattingleygrab/"
+    },
+    {
+      "platform": "X",
+      "url": "https://twitter.com/mattingleygrab"
+    }
+  ],
+  "lastChecked": "2026-09-06"
 }

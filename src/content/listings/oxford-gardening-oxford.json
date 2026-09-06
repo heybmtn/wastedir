@@ -1,10 +1,17 @@
 {
   "name": "Gardening Oxford",
   "town": "oxford",
-  "categories": ["Garden & Green Waste"],
-  "services": ["Waste Collection"],
-  "materials": ["Garden Waste"],
+  "categories": [
+    "Garden & Green Waste"
+  ],
+  "services": [
+    "Waste Collection"
+  ],
+  "materials": [
+    "Garden Waste"
+  ],
   "phone": "01865 800033",
   "website": "https://www.gardeningoxford.co.uk",
-  "description": "Oxford-based gardening company offering garden clearance and green waste disposal."
+  "description": "Oxford-based gardening company offering garden clearance and green waste disposal.",
+  "lastChecked": "2026-09-06"
 }

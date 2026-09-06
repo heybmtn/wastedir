@@ -1,12 +1,38 @@
 {
   "name": "R Collard",
   "town": "didcot",
-  "categories": ["Skips & Containers"],
-  "services": ["Skip Hire"],
-  "materials": ["Household Waste", "Construction Waste"],
+  "categories": [
+    "Skips & Containers"
+  ],
+  "services": [
+    "Skip Hire"
+  ],
+  "materials": [
+    "Household Waste",
+    "Construction Waste"
+  ],
   "address": "Old Newbury Road, Chilton",
   "postcode": "OX11 0RP",
   "phone": "01235 831913",
   "website": "https://www.rcollard.com",
-  "description": "Approved skip hire provider recognised by Oxfordshire County Council."
+  "description": "Approved skip hire provider recognised by Oxfordshire County Council.",
+  "socialProfiles": [
+    {
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/collardgroupltd/"
+    },
+    {
+      "platform": "Instagram",
+      "url": "https://www.instagram.com/collardgroupltd/"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://uk.linkedin.com/company/collardgroupltd"
+    },
+    {
+      "platform": "X",
+      "url": "https://x.com/collardgroupltd"
+    }
+  ],
+  "lastChecked": "2026-09-06"
 }

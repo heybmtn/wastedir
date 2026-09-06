@@ -1,11 +1,33 @@
 {
   "name": "Burgess Reclamation",
   "town": "bicester",
-  "categories": ["Wood & Timber Recycling", "Other Recycling & Waste Services"],
-  "services": ["Site Clearance"],
-  "materials": ["Wood"],
+  "categories": [
+    "Wood & Timber Recycling",
+    "Other Recycling & Waste Services"
+  ],
+  "services": [
+    "Site Clearance"
+  ],
+  "materials": [
+    "Wood"
+  ],
   "address": "B4100 Bicester to Banbury road, near Souldern, Bicester",
   "phone": "01869 346347",
   "website": "https://burgessreclamation.co.uk",
-  "description": "Reclamation yard near Bicester salvaging timber, beams and flooring from old barns and buildings, established over 45 years."
+  "description": "Reclamation yard near Bicester salvaging timber, beams and flooring from old barns and buildings, established over 45 years.",
+  "socialProfiles": [
+    {
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/BurgessReclamation/"
+    },
+    {
+      "platform": "Instagram",
+      "url": "https://www.instagram.com/burgess_reclamation/"
+    },
+    {
+      "platform": "X",
+      "url": "https://x.com/burgessreclaim"
+    }
+  ],
+  "lastChecked": "2026-09-06"
 }

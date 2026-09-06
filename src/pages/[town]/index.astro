@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { slugifyCategory } from '../../lib/categories';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ListingResults from '../../components/ListingResults.astro';
 
@@ -16,6 +17,8 @@ const allListings = await getCollection('listings');
 const listings = allListings
   .filter((l) => l.data.town === town.data.slug)
   .sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+const categoriesInTown = Array.from(new Set(listings.flatMap((l) => l.data.categories))).sort();
 ---
 
 <BaseLayout
@@ -37,6 +40,21 @@ const listings = allListings
       sponsor the {town.data.name} page.
     </p>
   </div>
+
+  {
+    categoriesInTown.length > 0 && (
+      <div class="chip-group">
+        <span class="chip-group-label">Browse by category</span>
+        <div class="chip-row">
+          {categoriesInTown.map((category) => (
+            <a class="chip" href={`/${town.data.slug}/${slugifyCategory(category)}/`}>
+              {category}
+            </a>
+          ))}
+        </div>
+      </div>
+    )
+  }
 
   <ListingResults listings={listings} emptyMessage={`No listings yet for ${town.data.name}.`} />
 </BaseLayout>

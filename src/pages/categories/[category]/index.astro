@@ -17,6 +17,12 @@ const allListings = await getCollection('listings');
 const listings = allListings
   .filter((l) => l.data.categories.includes(category))
   .sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+const allTowns = await getCollection('towns');
+const townNameBySlug = new Map(allTowns.map((t) => [t.data.slug, t.data.name]));
+const townsWithCategory = Array.from(new Set(listings.map((l) => l.data.town)))
+  .map((slug) => ({ slug, name: townNameBySlug.get(slug) ?? slug }))
+  .sort((a, b) => a.name.localeCompare(b.name));
 ---
 
 <BaseLayout
@@ -28,6 +34,21 @@ const listings = allListings
   </Fragment>
 
   <h1>{category}</h1>
+
+  {
+    townsWithCategory.length > 0 && (
+      <div class="chip-group">
+        <span class="chip-group-label">Available in</span>
+        <div class="chip-row">
+          {townsWithCategory.map((t) => (
+            <a class="chip" href={`/${t.slug}/${slugifyCategory(category)}/`}>
+              {t.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    )
+  }
 
   <ListingResults
     listings={listings}

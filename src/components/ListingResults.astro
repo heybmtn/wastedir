@@ -1,5 +1,6 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { slugifyCategory } from '../lib/categories';
 
 interface Props {
   listings: CollectionEntry<'listings'>[];
@@ -109,7 +110,14 @@ function jsonLd(listing: (typeof listings)[number]) {
                 <a href={`/${data.town}/`}>{townNameBySlug.get(data.town)}</a>
               </p>
             )}
-            <p class="listing-categories">{data.categories.join(' · ')}</p>
+            <p class="listing-categories">
+              {data.categories.map((cat, i) => (
+                <Fragment>
+                  {i > 0 && ' · '}
+                  <a href={`/${data.town}/${slugifyCategory(cat)}/`}>{cat}</a>
+                </Fragment>
+              ))}
+            </p>
             <ul class="listing-tags">
               {data.services.map((service) => (
                 <li class="tag-service">{service}</li>

@@ -1,0 +1,87 @@
+---
+import { getCollection } from 'astro:content';
+import { slugifyCategory } from '../../../lib/categories';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ListingResults from '../../../components/ListingResults.astro';
+
+export async function getStaticPaths() {
+  const towns = await getCollection('towns');
+  const allListings = await getCollection('listings');
+
+  return towns.flatMap((town) => {
+    const townListings = allListings.filter((l) => l.data.town === town.data.slug);
+    const categoriesInTown = new Set(townListings.flatMap((l) => l.data.categories));
+    return Array.from(categoriesInTown).map((category) => ({
+      params: { town: town.data.slug, category: slugifyCategory(category) },
+      props: { town, category },
+    }));
+  });
+}
+
+const { town, category } = Astro.props;
+const allListings = await getCollection('listings');
+const allTowns = await getCollection('towns');
+
+const listings = allListings
+  .filter((l) => l.data.town === town.data.slug && l.data.categories.includes(category))
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+const townListings = allListings.filter((l) => l.data.town === town.data.slug);
+const otherCategories = Array.from(new Set(townListings.flatMap((l) => l.data.categories)))
+  .filter((c) => c !== category)
+  .sort();
+
+const categoryListings = allListings.filter((l) => l.data.categories.includes(category));
+const townNameBySlug = new Map(allTowns.map((t) => [t.data.slug, t.data.name]));
+const otherTowns = Array.from(new Set(categoryListings.map((l) => l.data.town)))
+  .filter((slug) => slug !== town.data.slug)
+  .map((slug) => ({ slug, name: townNameBySlug.get(slug) ?? slug }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<BaseLayout
+  title={`${category} in ${town.data.name} — WasteList`}
+  description={`${category} businesses in ${town.data.name}, listed on WasteList.`}
+>
+  <Fragment slot="breadcrumb">
+    <a href="/">Home</a> / <a href={`/${town.data.slug}/`}>{town.data.name}</a> / {category}
+  </Fragment>
+
+  <h1>{category} in {town.data.name}</h1>
+  <p class="intro">{category} businesses in {town.data.name}, listed on WasteList.</p>
+
+  <ListingResults
+    listings={listings}
+    emptyMessage={`No ${category} listings yet in ${town.data.name}.`}
+  />
+
+  {
+    otherCategories.length > 0 && (
+      <div class="chip-group">
+        <span class="chip-group-label">Other categories in {town.data.name}</span>
+        <div class="chip-row">
+          {otherCategories.map((cat) => (
+            <a class="chip" href={`/${town.data.slug}/${slugifyCategory(cat)}/`}>
+              {cat}
+            </a>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  {
+    otherTowns.length > 0 && (
+      <div class="chip-group">
+        <span class="chip-group-label">Also available in</span>
+        <div class="chip-row">
+          {otherTowns.map((t) => (
+            <a class="chip" href={`/${t.slug}/${slugifyCategory(category)}/`}>
+              {t.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    )
+  }
+</BaseLayout>

@@ -10,6 +10,15 @@ const countByTown = new Map<string, number>();
 for (const listing of listings) {
   countByTown.set(listing.data.town, (countByTown.get(listing.data.town) ?? 0) + 1);
 }
+
+const townsByCounty = new Map<string, typeof towns>();
+for (const town of towns) {
+  const county = town.data.region ?? 'Other locations';
+  const group = townsByCounty.get(county) ?? [];
+  group.push(town);
+  townsByCounty.set(county, group);
+}
+const counties = Array.from(townsByCounty.keys()).sort((a, b) => a.localeCompare(b));
 ---
 
 <BaseLayout title="All locations — WasteList" description="Browse every town covered by WasteList.">
@@ -20,22 +29,26 @@ for (const listing of listings) {
   <h1>All locations</h1>
   <p class="intro">Every town covered by WasteList.</p>
 
-  <ul class="card-grid" id="location-list">
-    {
-      towns.map((town) => {
-        const count = countByTown.get(town.data.slug) ?? 0;
-        return (
-          <li>
-            <a href={`/${town.data.slug}/`}>
-              {town.data.name}
-              {town.data.region && <span class="card-subtitle">{town.data.region}</span>}
-              <span class="card-count">
-                {count} service{count === 1 ? '' : 's'}
-              </span>
-            </a>
-          </li>
-        );
-      })
-    }
-  </ul>
+  {
+    counties.map((county) => (
+      <section>
+        <h2>{county}</h2>
+        <ul class="card-grid">
+          {townsByCounty.get(county)!.map((town) => {
+            const count = countByTown.get(town.data.slug) ?? 0;
+            return (
+              <li>
+                <a href={`/${town.data.slug}/`}>
+                  {town.data.name}
+                  <span class="card-count">
+                    {count} service{count === 1 ? '' : 's'}
+                  </span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    ))
+  }
 </BaseLayout>

@@ -95,6 +95,23 @@ nav.breadcrumb {
   color: var(--color-muted);
 }
 
+.site-nav {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  color: var(--color-accent);
+}
+
 main {
   padding-bottom: 3rem;
   min-height: 60vh;
@@ -213,6 +230,7 @@ p.intro-note {
 
 .search-input-wrap {
   position: relative;
+  flex: 1 1 260px;
 }
 
 .search-icon {
@@ -241,6 +259,22 @@ p.intro-note {
 
 .search-box input[type="search"]:focus {
   border-color: var(--color-accent);
+}
+
+/* Hero search (postcode/town + Find button) */
+.hero-search {
+  margin: 1.5rem 0;
+}
+
+.hero-search-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.hero-search-row .btn {
+  height: 50px;
+  flex: 0 0 auto;
 }
 
 .search-empty {
@@ -273,48 +307,117 @@ p.intro-note {
   color: var(--color-muted);
 }
 
-/* Browse by service grid */
+/* Browse by service: icon cards */
 .service-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 0.6rem 1rem;
+  gap: 0.75rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.service-grid a {
+.service-card {
+  display: block;
+  height: 100%;
+  padding: 1.1rem 1rem;
+  border-radius: 8px;
+  background: var(--color-accent-light);
   text-decoration: none;
   color: var(--color-text);
-  font-weight: 500;
+  transition: transform 0.15s, background-color 0.15s;
 }
 
-.service-grid a:hover {
-  color: var(--color-accent-hover);
-  text-decoration: underline;
+.service-card:hover {
+  background: var(--color-chip-bg);
+  color: var(--color-text);
+  transform: translateY(-2px);
+}
+
+.service-icon {
+  display: block;
+  color: var(--color-accent);
+  margin-bottom: 0.6rem;
+}
+
+.service-card-label {
+  display: block;
+  font-weight: 600;
+}
+
+.service-card-cta {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--color-accent);
 }
 
 .service-grid-more {
-  color: var(--color-accent) !important;
-  font-weight: 600 !important;
-}
-
-/* Trust list */
-.trust-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 88px;
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px dashed var(--color-border);
+  border-radius: 8px;
 }
 
-.trust-list li {
+.service-grid-more:hover {
+  border-color: var(--color-accent);
+}
+
+/* Trust grid */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.25rem;
+}
+
+.trust-grid h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+
+.trust-grid p {
+  margin: 0;
   color: var(--color-muted);
+  font-size: 0.9rem;
 }
 
-.trust-list strong {
-  color: var(--color-text);
+/* Homepage business CTA block */
+.cta-block {
+  margin: 2.25rem 0 0;
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  text-align: center;
+}
+
+.cta-block h2 {
+  color: var(--color-accent-contrast);
+  margin-bottom: 0.5rem;
+}
+
+.cta-block p {
+  margin: 0 0 1.25rem;
+  color: var(--color-accent-contrast);
+  opacity: 0.9;
+}
+
+.cta-block .btn {
+  background: var(--color-accent-contrast);
+  border-color: var(--color-accent-contrast);
+  color: var(--color-accent);
+}
+
+.cta-block .btn:hover {
+  background: var(--color-bg);
+  border-color: var(--color-bg);
+  color: var(--color-accent-hover);
 }
 
 /* Town grid */

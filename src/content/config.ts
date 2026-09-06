@@ -54,6 +54,8 @@ export const MATERIALS = [
   'Construction Waste',
 ] as const;
 
+export const SOCIAL_PLATFORMS = ['Facebook', 'Instagram', 'LinkedIn', 'X', 'YouTube', 'TikTok'] as const;
+
 const towns = defineCollection({
   type: 'data',
   schema: z.object({
@@ -91,6 +93,18 @@ const listings = defineCollection({
     // distinct from the controlled `materials` list used for filtering.
     acceptedMaterials: z.array(z.string()).optional(),
     hours: z.string().optional(),
+    // Verified social profiles only — see README's "Data sourcing" section.
+    socialProfiles: z
+      .array(z.object({ platform: z.enum(SOCIAL_PLATFORMS), url: z.string() }))
+      .optional(),
+    // A Google Maps place / g.page link, only when actually found in search results.
+    googleBusinessProfile: z.string().optional(),
+    // Always set together, or not at all — a rating without a review count
+    // (or vice versa) hasn't been verified.
+    googleRating: z.number().min(0).max(5).optional(),
+    googleReviewCount: z.number().int().nonnegative().optional(),
+    // Date this listing's details were last verified against a live source.
+    lastChecked: z.coerce.date().optional(),
   }),
 });
 

@@ -94,4 +94,14 @@ const listings = defineCollection({
   }),
 });
 
-export const collections = { towns, listings };
+const posts = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    publishDate: z.date(),
+    updatedDate: z.date().optional(),
+  }),
+});
+
+export const collections = { towns, listings, posts };

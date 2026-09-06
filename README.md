@@ -36,6 +36,8 @@ src/
     [town]/index.astro             # town page: listings for one town
     categories/index.astro         # all categories, with listing counts
     categories/[category]/index.astro # cross-town listings for one category
+    blog/index.astro               # blog post list
+    blog/[slug]/index.astro        # single blog post
     get-listed/index.astro         # public intake form
   styles/
     global.css
@@ -142,6 +144,26 @@ a `/categories/` index of all 15 with counts. Slugs are generated from the categ
 page's "Browse by service" grid links to a curated subset of 8 categories
 (`FEATURED_CATEGORIES` in the same file, with shorter display labels) plus a "More →" link
 to the full `/categories/` index.
+
+## Adding a blog post
+
+Create a new Markdown file in `src/content/posts/`, e.g.
+`src/content/posts/my-new-post.md`:
+
+```md
+---
+title: "My New Post"
+description: "One-line summary shown on the blog index."
+publishDate: 2026-09-06
+---
+
+Write the post body here in plain Markdown.
+```
+
+The filename (minus `.md`) becomes the URL slug (`/blog/my-new-post/`). That's the
+whole workflow — no other files need touching. The post appears automatically on
+`/blog/` (newest first, by `publishDate`) and gets its own static page at build time.
+`updatedDate` is optional and only shown if set.
 
 ## Data sourcing
 

@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import { slugifyCategory } from '../../lib/categories';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ListingResults from '../../components/ListingResults.astro';
+import ChipLinks from '../../components/ChipLinks.astro';
 
 export async function getStaticPaths() {
   const towns = await getCollection('towns');
@@ -41,20 +42,14 @@ const categoriesInTown = Array.from(new Set(listings.flatMap((l) => l.data.categ
     </p>
   </div>
 
-  {
-    categoriesInTown.length > 0 && (
-      <div class="chip-group">
-        <span class="chip-group-label">Browse by category</span>
-        <div class="chip-row">
-          {categoriesInTown.map((category) => (
-            <a class="chip" href={`/${town.data.slug}/${slugifyCategory(category)}/`}>
-              {category}
-            </a>
-          ))}
-        </div>
-      </div>
-    )
-  }
+  <ChipLinks
+    id="browse-by-category"
+    label="Browse by category"
+    items={categoriesInTown.map((category) => ({
+      label: category,
+      href: `/${town.data.slug}/${slugifyCategory(category)}/`,
+    }))}
+  />
 
   <ListingResults listings={listings} emptyMessage={`No listings yet for ${town.data.name}.`} />
 </BaseLayout>

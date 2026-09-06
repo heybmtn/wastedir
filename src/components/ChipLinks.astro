@@ -1,0 +1,47 @@
+---
+interface Props {
+  id: string;
+  label: string;
+  items: { label: string; href: string }[];
+  max?: number;
+}
+
+const { id, label, items, max = 8 } = Astro.props;
+const visible = items.slice(0, max);
+const hidden = items.slice(max);
+---
+
+{
+  items.length > 0 && (
+    <div class="chip-group">
+      <span class="chip-group-label">{label}</span>
+      <div class="chip-row" id={id}>
+        {visible.map((item) => (
+          <a class="chip" href={item.href}>
+            {item.label}
+          </a>
+        ))}
+        {hidden.map((item) => (
+          <a class="chip" href={item.href} data-chip-extra hidden>
+            {item.label}
+          </a>
+        ))}
+      </div>
+      {hidden.length > 0 && (
+        <button type="button" class="chip-clear" data-chip-toggle={id}>
+          Show {hidden.length} more
+        </button>
+      )}
+    </div>
+  )
+}
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-chip-toggle]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const group = document.getElementById(btn.dataset.chipToggle ?? '');
+      group?.querySelectorAll('[data-chip-extra]').forEach((el) => el.removeAttribute('hidden'));
+      btn.remove();
+    });
+  });
+</script>

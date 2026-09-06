@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import { slugifyCategory } from '../../../lib/categories';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ListingResults from '../../../components/ListingResults.astro';
+import ChipLinks from '../../../components/ChipLinks.astro';
 
 export async function getStaticPaths() {
   const towns = await getCollection('towns');
@@ -55,33 +56,21 @@ const otherTowns = Array.from(new Set(categoryListings.map((l) => l.data.town)))
     emptyMessage={`No ${category} listings yet in ${town.data.name}.`}
   />
 
-  {
-    otherCategories.length > 0 && (
-      <div class="chip-group">
-        <span class="chip-group-label">Other categories in {town.data.name}</span>
-        <div class="chip-row">
-          {otherCategories.map((cat) => (
-            <a class="chip" href={`/${town.data.slug}/${slugifyCategory(cat)}/`}>
-              {cat}
-            </a>
-          ))}
-        </div>
-      </div>
-    )
-  }
+  <ChipLinks
+    id="other-categories-in-town"
+    label={`Other categories in ${town.data.name}`}
+    items={otherCategories.map((cat) => ({
+      label: cat,
+      href: `/${town.data.slug}/${slugifyCategory(cat)}/`,
+    }))}
+  />
 
-  {
-    otherTowns.length > 0 && (
-      <div class="chip-group">
-        <span class="chip-group-label">Also available in</span>
-        <div class="chip-row">
-          {otherTowns.map((t) => (
-            <a class="chip" href={`/${t.slug}/${slugifyCategory(category)}/`}>
-              {t.name}
-            </a>
-          ))}
-        </div>
-      </div>
-    )
-  }
+  <ChipLinks
+    id="also-available-in"
+    label="Also available in"
+    items={otherTowns.map((t) => ({
+      label: t.name,
+      href: `/${t.slug}/${slugifyCategory(category)}/`,
+    }))}
+  />
 </BaseLayout>

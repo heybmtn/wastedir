@@ -4,6 +4,7 @@ import { CATEGORIES } from '../../../content/config';
 import { slugifyCategory } from '../../../lib/categories';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ListingResults from '../../../components/ListingResults.astro';
+import ChipLinks from '../../../components/ChipLinks.astro';
 
 export async function getStaticPaths() {
   return CATEGORIES.map((category) => ({
@@ -35,20 +36,14 @@ const townsWithCategory = Array.from(new Set(listings.map((l) => l.data.town)))
 
   <h1>{category}</h1>
 
-  {
-    townsWithCategory.length > 0 && (
-      <div class="chip-group">
-        <span class="chip-group-label">Available in</span>
-        <div class="chip-row">
-          {townsWithCategory.map((t) => (
-            <a class="chip" href={`/${t.slug}/${slugifyCategory(category)}/`}>
-              {t.name}
-            </a>
-          ))}
-        </div>
-      </div>
-    )
-  }
+  <ChipLinks
+    id="available-in"
+    label="Available in"
+    items={townsWithCategory.map((t) => ({
+      label: t.name,
+      href: `/${t.slug}/${slugifyCategory(category)}/`,
+    }))}
+  />
 
   <ListingResults
     listings={listings}

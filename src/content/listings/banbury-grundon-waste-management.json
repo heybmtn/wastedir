@@ -1,0 +1,11 @@
+{
+  "name": "Grundon Waste Management (Banbury)",
+  "town": "banbury",
+  "categories": ["Commercial & Trade Waste"],
+  "services": ["Waste Collection"],
+  "materials": ["Household Waste", "Cardboard & Paper", "Metal"],
+  "address": "Thorpe Mead, Thorpe Industrial Estate, Banbury, Oxfordshire",
+  "postcode": "OX16 4RZ",
+  "website": "https://www.grundon.com/depot/banbury/",
+  "description": "Grundon's Banbury transfer station and depot, providing business waste collection services."
+}

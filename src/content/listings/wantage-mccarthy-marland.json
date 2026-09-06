@@ -1,9 +1,9 @@
 {
   "name": "McCarthy Marland",
   "town": "wantage",
-  "categories": ["Skips & Containers"],
-  "services": ["Skip Hire"],
-  "materials": ["Household Waste", "Construction Waste", "Garden Waste"],
+  "categories": ["Skips & Containers", "Building & Construction Waste", "Commercial & Trade Waste"],
+  "services": ["Skip Hire", "Waste Collection"],
+  "materials": ["Household Waste", "Construction Waste", "Garden Waste", "Soil & Rubble", "Wood", "Metal", "Cardboard & Paper", "Plastic"],
   "address": "Unit 1 The Glenmore Centre, Grove Technology Park, Wantage",
   "postcode": "OX12 9GN",
   "phone": "01235 760555",

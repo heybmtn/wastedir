@@ -1,0 +1,12 @@
+{
+  "name": "Oxford Wood Recycling",
+  "town": "abingdon",
+  "categories": ["Wood & Timber Recycling"],
+  "services": ["Waste Collection"],
+  "materials": ["Wood"],
+  "address": "4 Suffolk Way, Abingdon",
+  "postcode": "OX14 5JX",
+  "phone": "01235 861228",
+  "website": "https://www.oxfordwoodrecycling.org.uk",
+  "description": "Social enterprise collecting waste wood from commercial and domestic sites across Oxfordshire and selling reclaimed timber from its Wood Shop."
+}

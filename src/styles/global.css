@@ -592,6 +592,7 @@ p.intro-note {
   font-size: 0.9rem;
   color: var(--color-muted);
   margin: 0.25rem 0;
+  overflow-wrap: break-word;
 }
 
 .listing-meta a {

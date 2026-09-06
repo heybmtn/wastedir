@@ -21,13 +21,13 @@ for (const town of towns) {
 const counties = Array.from(townsByCounty.keys()).sort((a, b) => a.localeCompare(b));
 ---
 
-<BaseLayout title="All locations — WasteList" description="Browse every town covered by WasteList.">
+<BaseLayout title="All locations — Waste Info" description="Browse every town covered by Waste Info.">
   <Fragment slot="breadcrumb">
     <a href="/">Home</a> / All locations
   </Fragment>
 
   <h1>All locations</h1>
-  <p class="intro">Every town covered by WasteList.</p>
+  <p class="intro">Every town covered by Waste Info.</p>
 
   {
     counties.map((county) => (

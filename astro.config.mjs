@@ -2,6 +2,6 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://wastelist.uk',
+  site: 'https://wasteinfo.co.uk',
   integrations: [sitemap()],
 });

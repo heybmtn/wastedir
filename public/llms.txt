@@ -1,20 +1,20 @@
-# WasteList
+# Waste Info
 
 > A directory of local recycling and waste services in the UK, organised by
-> town and by service category. WasteList lists real, working businesses —
+> town and by service category. Waste Info lists real, working businesses —
 > skip hire, house clearance, scrap collection, and similar services — with
 > contact details and the materials/services each one covers.
 
 ## Site structure
 
-- [Home](https://wastelist.uk/): search by postcode/town, browse by service category.
-- [All locations](https://wastelist.uk/locations/): every town covered.
-- [All categories](https://wastelist.uk/categories/): all service categories, with listing counts.
-- [Oxford](https://wastelist.uk/oxford/): example town page — every listing in one town.
-- [Skips & Containers](https://wastelist.uk/categories/skips-and-containers/): example category page — every listing in one category, across all towns.
-- [Skip Hire in Banbury](https://wastelist.uk/banbury/skips-and-containers/): example town+category page — listings for one category within one town. These pages exist only where at least one matching listing exists.
-- [Blog](https://wastelist.uk/blog/): news, updates, and guides.
-- [Get listed](https://wastelist.uk/get-listed/): how a business gets added to the directory.
+- [Home](https://wasteinfo.co.uk/): search by postcode/town, browse by service category.
+- [All locations](https://wasteinfo.co.uk/locations/): every town covered.
+- [All categories](https://wasteinfo.co.uk/categories/): all service categories, with listing counts.
+- [Oxford](https://wasteinfo.co.uk/oxford/): example town page — every listing in one town.
+- [Skips & Containers](https://wasteinfo.co.uk/categories/skips-and-containers/): example category page — every listing in one category, across all towns.
+- [Skip Hire in Banbury](https://wasteinfo.co.uk/banbury/skips-and-containers/): example town+category page — listings for one category within one town. These pages exist only where at least one matching listing exists.
+- [Blog](https://wasteinfo.co.uk/blog/): news, updates, and guides.
+- [Get listed](https://wasteinfo.co.uk/get-listed/): how a business gets added to the directory.
 
 ## Data
 
@@ -25,4 +25,4 @@ per-page as `LocalBusiness` JSON-LD (schema.org).
 
 ## Full page list
 
-See [the sitemap](https://wastelist.uk/sitemap-index.xml) for the complete, current set of URLs.
+See [the sitemap](https://wasteinfo.co.uk/sitemap-index.xml) for the complete, current set of URLs.

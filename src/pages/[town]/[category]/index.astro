@@ -41,15 +41,15 @@ const otherTowns = Array.from(new Set(categoryListings.map((l) => l.data.town)))
 ---
 
 <BaseLayout
-  title={`${category} in ${town.data.name} — WasteList`}
-  description={`${category} businesses in ${town.data.name}, listed on WasteList.`}
+  title={`${category} in ${town.data.name} — Waste Info`}
+  description={`${category} businesses in ${town.data.name}, listed on Waste Info.`}
 >
   <Fragment slot="breadcrumb">
     <a href="/">Home</a> / <a href={`/${town.data.slug}/`}>{town.data.name}</a> / {category}
   </Fragment>
 
   <h1>{category} in {town.data.name}</h1>
-  <p class="intro">{category} businesses in {town.data.name}, listed on WasteList.</p>
+  <p class="intro">{category} businesses in {town.data.name}, listed on Waste Info.</p>
 
   <ListingResults
     listings={listings}

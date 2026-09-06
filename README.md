@@ -1,13 +1,8 @@
 # WasteList
 
-A static directory site for **paid** recycling & waste services, organised by town. Built
+A static directory site for recycling & waste services, organised by town. Built
 with [Astro](https://astro.build), no backend, no database — all content lives in the repo
 as data files under `src/content/`.
-
-This directory is for paid/commercial businesses only (scrap merchants, skip hire,
-clearance companies, etc.) — not free local-authority services such as council-run
-Household Waste Recycling Centres (HWRCs) or council bin collections. Keep that in mind
-when adding towns/listings.
 
 ## Stack
 
